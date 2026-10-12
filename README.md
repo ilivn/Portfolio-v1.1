@@ -2,14 +2,14 @@
 
 Portfolio de BTS SIO, option SISR (Ensitech). Les projets sont classés par bloc de compétences du référentiel.
 
-En ligne : https://ilivn.github.io/portfolio/
+En ligne : https://ilivn.github.io/Portfolio-v1.1/
 
 ## Contenu du dépôt
 
 | Fichier ou dossier | Rôle |
 |---|---|
 | `index.html` | Le portfolio (page d'accueil du site) |
-| `crm/index.html` | Carnet, le CRM pour entreprise, accessible à l'adresse `/portfolio/crm/` |
+| `crm/index.html` | Carnet, le CRM pour entreprise, accessible à l'adresse `/Portfolio-v1.1/crm/` |
 | `preuves/` | Captures et documents qui servent de preuves aux projets |
 | `.nojekyll` | Demande à GitHub Pages de servir les fichiers tels quels |
 
