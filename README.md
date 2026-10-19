@@ -9,6 +9,7 @@ En ligne : https://ilivn.github.io/Portfolio-v1.1/
 | Fichier ou dossier | Rôle |
 |---|---|
 | `index.html` | Le portfolio (page d'accueil du site) |
+| `projets.html` | La vitrine : présentation façon publicité de LootRadar, Sport Local et Carnet CRM |
 | `crm/index.html` | Carnet, le CRM pour entreprise, accessible à l'adresse `/Portfolio-v1.1/crm/` |
 | `preuves/` | Captures et documents qui servent de preuves aux projets |
 | `.nojekyll` | Demande à GitHub Pages de servir les fichiers tels quels |
