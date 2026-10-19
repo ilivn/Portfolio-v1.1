@@ -45,7 +45,7 @@ a{color:inherit}
 /* ---------- Onglets ---------- */
 .onglets{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--fond) 90%,transparent);backdrop-filter:blur(10px);padding:12px 0;border-bottom:1px solid var(--bord)}
 .onglets div{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
-.onglet{flex:1;min-width:max-content;border:0;cursor:pointer;font:600 15px var(--corps);color:var(--doux);background:transparent;border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:center;gap:8px}
+.onglet{flex:none;min-width:max-content;border:0;cursor:pointer;font:600 15px var(--corps);color:var(--doux);background:transparent;border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:center;gap:8px}
 .onglet:hover{color:var(--texte);background:var(--carte)}
 .onglet[aria-selected="true"]{background:var(--texte);color:var(--fond)}
 .onglet .nb{font-size:12px;background:var(--accent-doux);color:var(--accent);border-radius:99px;padding:0 7px}
@@ -61,7 +61,7 @@ a{color:inherit}
 
 /* ---------- Une « pub » de projet ---------- */
 .pub{--c:#5b3df5;--c-fond:#f0edff;margin-top:28px;background:var(--carte);border:1px solid var(--bord);border-radius:24px;overflow:hidden}
-.pub-haut{display:grid;grid-template-columns:1fr 200px;gap:24px;align-items:center;padding:32px;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 13%,transparent),transparent 70%)}
+.pub-haut{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding:32px;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 13%,transparent),transparent 70%)}
 .pub-type{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--c);margin:0}
 .pub h3{font-size:clamp(30px,5vw,42px);letter-spacing:-.5px;margin-top:6px}
 .slogan{font:500 21px/1.35 var(--titre);margin:10px 0 0}
@@ -69,7 +69,6 @@ a{color:inherit}
 .pub .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .pub .bouton{background:var(--c);border-color:var(--c)}
 .pub .bouton.leger{background:transparent;border-color:var(--bord);color:var(--texte)}
-.logo-projet{width:200px;aspect-ratio:1;border-radius:36px;display:grid;place-items:center;font-size:84px;background:var(--c);box-shadow:0 18px 40px color-mix(in srgb,var(--c) 35%,transparent);transform:rotate(-4deg)}
 .pub-bas{padding:4px 32px 32px}
 .forts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .fort{background:var(--fond);border-radius:16px;padding:16px}
@@ -85,12 +84,35 @@ a{color:inherit}
 .outils span{background:var(--fond);border:1px solid var(--bord);border-radius:8px;padding:1px 9px;color:var(--texte);font-size:13.5px}
 .infos strong{color:var(--texte)}
 
+/* ---------- Teaser façon vidéo ---------- */
+.lecteur{--c:#5b3df5;border-radius:16px;overflow:hidden;background:#0c0c11;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.ecran{position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer;background:radial-gradient(circle at 30% 20%,color-mix(in srgb,var(--c) 70%,#000),#0c0c11 75%);color:#fff}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px 24px;gap:6px}
+.scene.entre{animation:entre .6s cubic-bezier(.2,.8,.2,1)}
+.scene.entre .s-grand{animation:pop .7s cubic-bezier(.2,1.4,.4,1)}
+@keyframes entre{from{opacity:0;transform:translateY(14px) scale(.97)}}
+@keyframes pop{from{transform:scale(.3) rotate(-12deg)}}
+.s-grand{font-size:clamp(34px,6vw,52px);line-height:1}
+.s-titre{font:600 clamp(18px,3vw,26px)/1.2 var(--titre);max-width:90%}
+.s-petit{font-size:14px;opacity:.8;max-width:90%}
+.couverture{position:absolute;inset:0;border:0;padding:0;cursor:pointer;color:#fff;font:inherit;background:linear-gradient(160deg,var(--c),color-mix(in srgb,var(--c) 40%,#000));display:grid;place-items:center}
+.c-icone{font-size:64px;opacity:.35;position:absolute;right:18px;bottom:6px;transform:rotate(-10deg)}
+.c-titre{position:absolute;left:14px;top:12px;font-weight:600;font-size:14.5px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.c-duree{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.65);border-radius:6px;padding:1px 7px;font-size:13px;font-weight:600}
+.play{width:68px;height:48px;border-radius:14px;background:#ff0033;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .15s}
+.play:after{content:"";border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
+.couverture:hover .play{transform:scale(1.08)}
+.controles{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#0c0c11;color:#fff}
+.c-btn{border:0;background:transparent;color:#fff;font:600 14px var(--corps);cursor:pointer;width:28px;padding:4px 0}
+.piste{flex:1;height:5px;border-radius:99px;background:rgba(255,255,255,.22);cursor:pointer;position:relative}
+.rempli{height:100%;width:0;border-radius:99px;background:#ff0033}
+.c-temps{font-size:12.5px;opacity:.85;font-variant-numeric:tabular-nums;white-space:nowrap}
+
 footer{border-top:1px solid var(--bord);padding:24px 0 40px;color:var(--doux);font-size:14px}
 
 @media (max-width:720px){
   .entete{padding-top:36px}
   .pub-haut{grid-template-columns:1fr;padding:24px}
-  .logo-projet{width:96px;border-radius:24px;font-size:44px;order:-1}
   .pub-bas{padding:0 24px 24px}
   .forts,.etapes{grid-template-columns:1fr}
   .onglet{flex:none}
@@ -105,7 +127,7 @@ footer{border-top:1px solid var(--bord);padding:24px 0 40px;color:var(--doux);fo
     <span class="etiquette">BTS SIO · option SISR · Ensitech</span>
     <h1>Ilian SEGHIRI</h1>
     <p class="role">Étudiant en BTS Services Informatiques aux Organisations</p>
-    <p class="resume">Je m'intéresse aux réseaux et à la cybersécurité. Ce portfolio regroupe mes projets, classés par thème : clique sur un onglet pour les voir.</p>
+    <p class="resume">Je m'intéresse aux réseaux et à la cybersécurité. Ce portfolio regroupe mes projets, présentés juste en dessous : lance un teaser pour les découvrir.</p>
     <div class="contact">
       <a class="bouton" href="mailto:seghiri.ilian@yahoo.com">✉️ Me contacter</a>
       <a class="bouton leger" href="https://github.com/ilivn" target="_blank" rel="noopener">Mon GitHub</a>
@@ -130,21 +152,9 @@ footer{border-top:1px solid var(--bord);padding:24px 0 40px;color:var(--doux);fo
    ===================================================================== */
 var onglets = [
   {
-    id: "reseaux", nom: "Réseaux", icone: "🖧",
-    titre: "Réseaux",
-    intro: "Concevoir, installer, superviser et dépanner l'infrastructure réseau d'une entreprise.",
-    projets: []
-  },
-  {
-    id: "cybersecurite", nom: "Cybersécurité", icone: "🛡️",
-    titre: "Cybersécurité",
-    intro: "Protéger les données, les équipements et les applications d'une organisation.",
-    projets: []
-  },
-  {
-    id: "preuves", nom: "Preuves", icone: "🏆",
-    titre: "Preuves : mes réalisations en ligne",
-    intro: "Trois projets terminés et publiés. Chacun s'ouvre en un clic pour l'essayer.",
+    id: "projets", nom: "Mes projets", icone: "🚀",
+    titre: "Mes projets",
+    intro: "Trois projets terminés et publiés. Lance le teaser pour les découvrir, puis essaie-les en un clic.",
     projets: [
       {
         nom: "LootRadar", type: "Site internet", icone: "🎮", couleur: "#16a34a", fond: "#e3f7e9",
@@ -192,12 +202,6 @@ var onglets = [
         code: "https://github.com/ilivn/CRM-base-"
       }
     ]
-  },
-  {
-    id: "autres", nom: "Autres projets", icone: "🧩",
-    titre: "Autres projets",
-    intro: "Veille technologique, travail en équipe, support et autres projets du BTS.",
-    projets: []
   }
 ];
 
@@ -216,6 +220,110 @@ function lien(texte, adresse, classe) {
   return a;
 }
 
+
+/* ---------- Teaser façon vidéo ---------- */
+var DUREE_SCENE = 2600; // durée d'une scène en millisecondes
+var lecteurs = [];
+
+function scenesDe(p) {
+  var s = [{ grand: p.icone, titre: p.nom, petit: p.type }];
+  s.push({ grand: "💬", titre: p.slogan, petit: "" });
+  var emojis = ["⚡", "⭐", "✅"];
+  p.forts.forEach(function (f, i) { s.push({ grand: emojis[i], titre: f[0], petit: f[1] }); });
+  s.push({ grand: "👉", titre: "Essaie-le maintenant", petit: p.lien.replace("https://", "") });
+  return s;
+}
+
+function temps(ms) {
+  var sec = Math.round(ms / 1000);
+  return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
+}
+
+function teaser(p) {
+  var scenes = scenesDe(p), total = scenes.length * DUREE_SCENE;
+  var boite = el("div", "lecteur");
+  boite.style.setProperty("--c", p.couleur);
+
+  var ecran = el("div", "ecran");
+  var scene = el("div", "scene");
+  var sGrand = el("div", "s-grand"), sTitre = el("div", "s-titre"), sPetit = el("div", "s-petit");
+  scene.appendChild(sGrand); scene.appendChild(sTitre); scene.appendChild(sPetit);
+  ecran.appendChild(scene);
+
+  // Couverture (avant de lancer)
+  var couverture = el("button", "couverture");
+  couverture.type = "button";
+  couverture.setAttribute("aria-label", "Lancer le teaser de " + p.nom);
+  var cIcone = el("span", "c-icone", p.icone);
+  var cTitre = el("span", "c-titre", "Teaser · " + p.nom);
+  var play = el("span", "play");
+  var duree = el("span", "c-duree", temps(total));
+  couverture.appendChild(cTitre); couverture.appendChild(cIcone); couverture.appendChild(play); couverture.appendChild(duree);
+  ecran.appendChild(couverture);
+  boite.appendChild(ecran);
+
+  // Barre de contrôle
+  var barre = el("div", "controles");
+  var bPlay = el("button", "c-btn", "▶"); bPlay.type = "button"; bPlay.setAttribute("aria-label", "Lecture / pause");
+  var piste = el("div", "piste"), rempli = el("div", "rempli");
+  piste.appendChild(rempli);
+  var compteur = el("span", "c-temps", "0:00 / " + temps(total));
+  barre.appendChild(bPlay); barre.appendChild(piste); barre.appendChild(compteur);
+  boite.appendChild(barre);
+
+  var lecteur = { position: 0, enCours: false, debut: 0, sceneActuelle: -1 };
+
+  function montrer(i) {
+    if (i === lecteur.sceneActuelle) return;
+    lecteur.sceneActuelle = i;
+    var sc = scenes[i];
+    sGrand.textContent = sc.grand; sTitre.textContent = sc.titre; sPetit.textContent = sc.petit;
+    scene.classList.remove("entre"); void scene.offsetWidth; scene.classList.add("entre");
+  }
+  function dessiner() {
+    rempli.style.width = (lecteur.position / total * 100) + "%";
+    compteur.textContent = temps(lecteur.position) + " / " + temps(total);
+    montrer(Math.min(scenes.length - 1, Math.floor(lecteur.position / DUREE_SCENE)));
+  }
+  function boucle(t) {
+    if (!lecteur.enCours) return;
+    lecteur.position = Math.max(0, Math.min(total, t - lecteur.debut));
+    dessiner();
+    if (lecteur.position >= total) { pause(); bPlay.textContent = "↺"; return; }
+    requestAnimationFrame(boucle);
+  }
+  function lire() {
+    lecteurs.forEach(function (l) { if (l !== lecteur) l.pause(); });
+    if (lecteur.position >= total) lecteur.position = 0;
+    couverture.hidden = true;
+    lecteur.enCours = true;
+    lecteur.debut = performance.now() - lecteur.position;
+    bPlay.textContent = "❚❚";
+    boite.classList.add("joue");
+    requestAnimationFrame(boucle);
+  }
+  function pause() {
+    lecteur.enCours = false;
+    bPlay.textContent = "▶";
+    boite.classList.remove("joue");
+  }
+  lecteur.pause = pause;
+  lecteurs.push(lecteur);
+
+  couverture.onclick = lire;
+  bPlay.onclick = function () { lecteur.enCours ? pause() : lire(); };
+  ecran.addEventListener("click", function (e) { if (e.target !== couverture && !couverture.contains(e.target)) { lecteur.enCours ? pause() : lire(); } });
+  piste.onclick = function (e) {
+    var r = piste.getBoundingClientRect();
+    lecteur.position = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * total;
+    couverture.hidden = true;
+    dessiner();
+    if (lecteur.enCours) lecteur.debut = performance.now() - lecteur.position;
+  };
+  montrer(0);
+  return boite;
+}
+
 function carteProjet(p) {
   var pub = el("article", "pub");
   pub.style.setProperty("--c", p.couleur);
@@ -231,9 +339,7 @@ function carteProjet(p) {
   if (p.code) actions.appendChild(lien("Voir le code", p.code, "bouton leger"));
   texte.appendChild(actions);
   haut.appendChild(texte);
-  var logo = el("div", "logo-projet", p.icone);
-  logo.setAttribute("aria-hidden", "true");
-  haut.appendChild(logo);
+  haut.appendChild(teaser(p));
   pub.appendChild(haut);
 
   var bas = el("div", "pub-bas");
@@ -267,7 +373,8 @@ function carteProjet(p) {
 }
 
 function afficher(id) {
-  var actif = onglets.filter(function (o) { return o.id === id; })[0] || onglets[2];
+  lecteurs = [];
+  var actif = onglets.filter(function (o) { return o.id === id; })[0] || onglets[0];
 
   var barre = document.getElementById("onglets");
   barre.innerHTML = "";
@@ -304,7 +411,7 @@ function afficher(id) {
   contenu.appendChild(section);
 }
 
-afficher(location.hash.slice(1) || "preuves");
+afficher(location.hash.slice(1) || "projets");
 window.addEventListener("hashchange", function () { afficher(location.hash.slice(1)); });
 </script>
 </body>

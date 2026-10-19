@@ -4,17 +4,13 @@ Portfolio de BTS SIO, option SISR (Ensitech).
 
 En ligne : https://ilivn.github.io/Portfolio-v1.1/
 
-## Les onglets
+## Contenu
 
-| Onglet | Contenu |
-|---|---|
-| Réseaux | Projets d'infrastructure réseau (à venir) |
-| Cybersécurité | Projets de sécurité (à venir) |
-| Preuves | LootRadar (site), Sport Local (application), Carnet (CRM) |
-| Autres projets | Veille, travail en équipe, support… (à venir) |
+Un seul onglet, **Mes projets** : LootRadar (site), Sport Local (application) et Carnet (CRM).
+À côté de chaque projet, un teaser façon vidéo (bouton play, barre de progression, durée) se lance au clic.
+Les scènes du teaser sont créées automatiquement à partir du nom, du slogan et des points forts du projet.
 
 ## Ajouter un projet
 
 Tout se trouve dans `index.html`, dans la liste `onglets` en haut du script.
-Ajouter un objet dans le tableau `projets` de l'onglet voulu, en copiant un projet de l'onglet Preuves.
-Un onglet sans projet affiche automatiquement « Projets en cours ».
+Ajouter un objet dans le tableau `projets`, en copiant un projet existant. Son teaser se crée tout seul.
