@@ -3,383 +3,309 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Portfolio BTS SIO option SISR d'Ilian SEGHIRI : projets classés par bloc de compétences.">
-<title>Portfolio BTS SIO — Ilian SEGHIRI</title>
+<meta name="description" content="Portfolio BTS SIO option SISR d'Ilian SEGHIRI : réseaux, cybersécurité et projets réalisés.">
+<title>Ilian SEGHIRI — Portfolio BTS SIO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f3f0ff;--panel:#fff;--ink:#271f4d;--muted:#6a6590;--line:#e4defa;--violet:#6c4bff;
---sky-bg:#e1f0ff;--sky:#0a5fb8;--vio-bg:#ebe6ff;--vio:#4a2fd0;--sun-bg:#fff2cc;--sun:#7a5200;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17132e;--panel:#221c42;--ink:#f1eeff;--muted:#b0a9d9;--line:#38306a;--sky-bg:#123a63;--sky:#8ec8ff;--vio-bg:#33286e;--vio:#c3b5ff;--sun-bg:#4a3a0a;--sun:#ffd666;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#17132e;--panel:#221c42;--ink:#f1eeff;--muted:#b0a9d9;--line:#38306a;--sky-bg:#123a63;--sky:#8ec8ff;--vio-bg:#33286e;--vio:#c3b5ff;--sun-bg:#4a3a0a;--sun:#ffd666;color-scheme:dark}
+/* ---------- Couleurs (clair / sombre) ---------- */
+:root{
+  --fond:#f6f5f2; --carte:#ffffff; --texte:#1a1a22; --doux:#5f6170; --bord:#e4e2dc;
+  --accent:#5b3df5; --accent-doux:#ece8ff;
+  --titre:"Outfit",system-ui,sans-serif; --corps:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --fond:#121218; --carte:#1c1c25; --texte:#eeeef4; --doux:#a3a4b5; --bord:#2e2e3b;
+  --accent:#9b87ff; --accent-doux:#2a2547; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --fond:#121218; --carte:#1c1c25; --texte:#eeeef4; --doux:#a3a4b5; --bord:#2e2e3b;
+  --accent:#9b87ff; --accent-doux:#2a2547; color-scheme:dark}
+
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:400 17px/1.5 Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:110px}
-h1,h2,h3,h4{font-family:Fredoka,"Trebuchet MS",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.2}
-button{font:inherit;color:inherit;cursor:pointer}
-:focus-visible{outline:3px solid var(--violet);outline-offset:2px}
-.app{max-width:720px;margin:0 auto;--acc:#078273}
-.app[data-b="1"]{--acc:#6c4bff}.app[data-b="2"]{--acc:#d92f4b}
-.hero{background:var(--acc);color:#fff;padding:26px 20px 70px;border-radius:0 0 32px 32px;position:relative;overflow:hidden;transition:background .3s}
-.hero a{color:#fff}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.14)}
-.hero:before{width:170px;height:170px;right:-40px;top:-50px}.hero:after{width:90px;height:90px;right:70px;bottom:-30px;background:rgba(255,200,40,.5)}
-.who{display:flex;align-items:center;gap:14px;position:relative}
-.av{width:58px;height:58px;border-radius:50%;background:#ffbf1f;color:#271f4d;display:grid;place-items:center;font:600 22px Fredoka,sans-serif;flex:none}
-.hero h1{font-size:24px}.hero p{margin:2px 0 0;opacity:.95;font-size:15px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:-44px 16px 0;position:relative}
-.stat{background:var(--panel);border-radius:18px;padding:12px 8px;text-align:center;box-shadow:0 6px 18px rgba(60,40,140,.12)}
-.stat b{display:block;font:600 24px Fredoka,sans-serif;color:var(--acc)}.stat span{font-size:14px;color:var(--muted)}
-.body{padding:22px 16px 0}
-.bh h2{font-size:22px}.bh p{margin:6px 0 0;color:var(--muted);font-size:15px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:16px 0 6px;scrollbar-width:none}
-.chip{border:2px solid var(--line);background:var(--panel);border-radius:99px;padding:6px 14px;white-space:nowrap;font-weight:700;font-size:15px}
-.chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
-.seg{display:flex;background:var(--vio-bg);border-radius:14px;padding:4px;margin:12px 0 4px}
-.seg button{flex:1;border:0;background:transparent;border-radius:11px;padding:8px 6px;font-weight:700;font-size:15px;color:var(--vio)}
-.seg button[aria-pressed="true"]{background:var(--panel);box-shadow:0 2px 8px rgba(60,40,140,.18)}
-.gname{margin:14px 2px 2px;color:var(--muted);font-size:15px}
-details{background:var(--panel);border-radius:18px;margin-top:12px;box-shadow:0 4px 14px rgba(60,40,140,.08);border:2px solid transparent}
-details[open]{border-color:var(--acc)}
-summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer;border-radius:16px}
-summary::-webkit-details-marker{display:none}
-.ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;flex:none}
-.t-site{background:var(--sky-bg)}.t-app{background:var(--vio-bg)}.t-autre{background:var(--sun-bg)}
-summary h3{font-size:16.5px;flex:1;min-width:0}
-.chev{transition:transform .2s;color:var(--muted);font-size:18px}
-details[open] .chev{transform:rotate(90deg)}
-.det{padding:0 16px 16px 16px}
-.tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:14px;font-weight:700}
-.tag.t-site{color:var(--sky)}.tag.t-app{color:var(--vio)}.tag.t-autre{color:var(--sun)}
-.det h4{font-size:17px;margin:8px 0 4px}.det p{margin:0 0 8px;font-size:16px}
-.tools{display:flex;flex-wrap:wrap;gap:6px}.tools span{background:var(--bg);border-radius:8px;padding:2px 9px;font-size:14px}
-.proof{margin-top:10px;font-size:14px;color:var(--muted)}
-.empty{text-align:center;color:var(--muted);padding:30px 10px}
-.files{margin-top:12px;padding-top:12px;border-top:2px dashed var(--line)}
-.ftitle{font:600 15px Fredoka,sans-serif;margin-bottom:6px}
-.frow{display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--bg);border-radius:10px;margin-bottom:6px;font-size:15px}
-.flink{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;color:var(--vio)}
-.fsize{color:var(--muted);font-size:13px}
-.frm{border:0;background:transparent;color:var(--muted);font-size:13px;text-decoration:underline;padding:4px}
-.fadd{border:2px dashed var(--vio);background:transparent;color:var(--vio);border-radius:14px;padding:9px 14px;font-weight:700;width:100%}
-.fadd:disabled{opacity:.6}
-.fmsg{margin:6px 0 0;font-size:14px;color:var(--muted)}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.open{display:inline-block;padding:9px 16px;border-radius:14px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none}
-.open.alt{background:transparent;color:var(--acc);border:2px solid var(--acc);padding:7px 14px}
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;padding:8px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--panel);border-top:1px solid var(--line)}
-.tabs div{display:flex;gap:6px;width:100%;max-width:720px}
-.tab{flex:1;border:0;background:transparent;border-radius:16px;padding:6px 4px;display:flex;flex-direction:column;align-items:center;font-size:13.5px;font-weight:700;color:var(--muted)}
-.tab i{font-style:normal;font-size:22px}
-.tab[aria-selected="true"]{background:var(--vio-bg);color:var(--vio)}
-.pitch{margin:14px 0 0;font-size:16px;position:relative;max-width:460px}
-.hcta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative}
-.hbtn{display:inline-block;text-decoration:none;font-weight:800;font-size:15px;padding:10px 16px;border-radius:14px;background:#fff;color:var(--ink)!important}
-.hbtn.alt{background:rgba(255,255,255,.18);color:#fff!important}
-.guide{background:var(--panel);border-radius:18px;padding:16px;margin-top:4px;box-shadow:0 4px 14px rgba(60,40,140,.08)}
-.guide h2{font-size:18px;margin-bottom:10px}
-.guide ol{margin:0;padding:0;list-style:none;display:grid;gap:8px;counter-reset:g}
-.guide li{counter-increment:g;display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
-.guide li:before{content:counter(g);flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--vio-bg);color:var(--vio);font:600 14px Fredoka,sans-serif}
-.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.phares{margin:22px 0 26px}
-.phares-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}
-.phares-h h2{font-size:20px}.phares-h a{font-weight:800;font-size:15px;color:var(--vio)}
-.pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.pcard{display:block;text-decoration:none;color:#fff;border-radius:18px;overflow:hidden;position:relative;aspect-ratio:3/4;background:#111;box-shadow:0 6px 18px rgba(60,40,140,.15);transition:transform .2s}
-.pcard:hover{transform:translateY(-4px)}
-.pcard img{width:100%;height:100%;object-fit:cover;object-position:top;opacity:.75}
-.pcard div{position:absolute;left:0;right:0;bottom:0;padding:10px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
-.pcard b{display:block;font:600 16px Fredoka,sans-serif}.pcard span{font-size:12.5px;opacity:.9}
-.sep{border:0;border-top:2px dashed var(--line);margin:0 0 20px}
-@media (max-width:480px){.pcards{grid-template-columns:repeat(3,1fr);gap:8px}.pcard b{font-size:14px}}
-/* Une pub = un produit */
-.pub{--c:#c6f35a;--c-ink:#111;--fond:#0d1017;--texte:#eef1f6;--doux:#9aa3b5;--carte:#171b25;
-  margin:0 0 18px;border-radius:26px;background:var(--fond);color:var(--texte);overflow:hidden;position:relative;scroll-margin-top:70px}
-.pub:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:var(--c);opacity:.13;filter:blur(40px);top:-200px;right:-160px;pointer-events:none}
-.pub-haut{display:grid;grid-template-columns:1fr;gap:20px;padding:30px 22px 20px;position:relative}
-.badge{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--c);margin-bottom:14px}
-.badge:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c)}
-.pub h2{font-size:clamp(32px,7vw,44px);letter-spacing:-1px}
-.pub h2 span{color:var(--c)}
-.slogan{font-size:18px;margin:16px 0 0;color:var(--texte);max-width:480px}
-.slogan small{display:block;color:var(--doux);font-size:16px;margin-top:8px}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.btn{display:inline-block;text-decoration:none;font-weight:800;padding:13px 22px;border-radius:16px;background:var(--c);color:var(--c-ink);transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn.alt{background:transparent;color:var(--texte);border:2px solid #ffffff33;padding:11px 20px}
+body{background:var(--fond);color:var(--texte);font:400 16.5px/1.6 var(--corps)}
+h1,h2,h3{font-family:var(--titre);font-weight:600;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.page{max-width:960px;margin:0 auto;padding:0 20px}
 
-/* Maquettes */
-.ecran{display:flex;justify-content:center}
-.tel{width:min(230px,66vw);aspect-ratio:9/18.5;border-radius:38px;padding:10px;background:#000;border:2px solid #ffffff22;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 6px #ffffff10;transform:rotate(2deg)}
-.tel img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:29px;display:block}
-.pc{width:100%;max-width:440px}
-.pc .vitre{border-radius:14px 14px 0 0;padding:8px;background:#000;border:2px solid #ffffff22;box-shadow:0 30px 60px rgba(0,0,0,.45)}
-.pc img{width:100%;display:block;border-radius:6px}
-.pc .pied{height:14px;margin:0 -18px;background:linear-gradient(#3a3f4c,#23262f);border-radius:0 0 14px 14px}
+/* ---------- En-tête ---------- */
+.entete{padding:56px 0 28px}
+.etiquette{display:inline-block;font-size:13.5px;font-weight:600;color:var(--accent);background:var(--accent-doux);border-radius:99px;padding:4px 12px;margin-bottom:16px}
+.entete h1{font-size:clamp(36px,6vw,54px);letter-spacing:-1px}
+.entete .role{font-size:19px;color:var(--doux);margin:8px 0 0}
+.entete .resume{max-width:620px;margin:18px 0 0}
+.contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.bouton{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:11px 18px;border-radius:12px;background:var(--accent);color:#fff;border:2px solid var(--accent);transition:transform .15s}
+.bouton:hover{transform:translateY(-2px)}
+.bouton.leger{background:transparent;color:var(--texte);border-color:var(--bord)}
 
-/* Points forts + étapes */
-.pub-bas{padding:4px 22px 26px;position:relative}
-.forts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.fort{background:var(--carte);border-radius:20px;padding:20px;border:1px solid #ffffff12}
-.fort i{font-style:normal;font-size:28px}
-.fort h3{font-size:19px;margin:8px 0 6px}
-.fort p{margin:0;color:var(--doux);font-size:15.5px}
-.etapes{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:14px 24px;align-items:start;background:var(--carte);border-radius:20px;padding:22px;border:1px solid #ffffff12}
-.etapes h3{grid-column:1/-1;font-size:18px}
-.etapes ol{grid-column:1/-1;display:grid;grid-template-columns:1fr;gap:14px;margin:0;padding:0;list-style:none;counter-reset:e}
-.etapes li{counter-increment:e;display:flex;gap:12px;font-size:15.5px;color:var(--doux)}
-.etapes li:before{content:counter(e);flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:var(--c-ink);font:700 15px Fredoka,sans-serif}
+/* ---------- Onglets ---------- */
+.onglets{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--fond) 90%,transparent);backdrop-filter:blur(10px);padding:12px 0;border-bottom:1px solid var(--bord)}
+.onglets div{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.onglet{flex:1;min-width:max-content;border:0;cursor:pointer;font:600 15px var(--corps);color:var(--doux);background:transparent;border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:center;gap:8px}
+.onglet:hover{color:var(--texte);background:var(--carte)}
+.onglet[aria-selected="true"]{background:var(--texte);color:var(--fond)}
+.onglet .nb{font-size:12px;background:var(--accent-doux);color:var(--accent);border-radius:99px;padding:0 7px}
+.onglet[aria-selected="true"] .nb{background:var(--accent);color:#fff}
+
+/* ---------- Contenu d'un onglet ---------- */
+.panneau{padding:36px 0 64px}
+.panneau-tete h2{font-size:30px}
+.panneau-tete p{color:var(--doux);margin:8px 0 0;max-width:640px}
+.vide{margin-top:28px;background:var(--carte);border:2px dashed var(--bord);border-radius:20px;padding:40px 24px;text-align:center;color:var(--doux)}
+.vide b{display:block;font:600 19px var(--titre);color:var(--texte);margin:8px 0 4px}
+.vide i{font-style:normal;font-size:34px}
+
+/* ---------- Une « pub » de projet ---------- */
+.pub{--c:#5b3df5;--c-fond:#f0edff;margin-top:28px;background:var(--carte);border:1px solid var(--bord);border-radius:24px;overflow:hidden}
+.pub-haut{display:grid;grid-template-columns:1fr 200px;gap:24px;align-items:center;padding:32px;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 13%,transparent),transparent 70%)}
+.pub-type{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--c);margin:0}
+.pub h3{font-size:clamp(30px,5vw,42px);letter-spacing:-.5px;margin-top:6px}
+.slogan{font:500 21px/1.35 var(--titre);margin:10px 0 0}
+.pub-desc{color:var(--doux);margin:10px 0 0;max-width:520px}
+.pub .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pub .bouton{background:var(--c);border-color:var(--c)}
+.pub .bouton.leger{background:transparent;border-color:var(--bord);color:var(--texte)}
+.logo-projet{width:200px;aspect-ratio:1;border-radius:36px;display:grid;place-items:center;font-size:84px;background:var(--c);box-shadow:0 18px 40px color-mix(in srgb,var(--c) 35%,transparent);transform:rotate(-4deg)}
+.pub-bas{padding:4px 32px 32px}
+.forts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fort{background:var(--fond);border-radius:16px;padding:16px}
+.fort b{display:block;font:600 16.5px var(--titre);margin-bottom:4px}
+.fort span{color:var(--doux);font-size:15px}
+.etapes{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:e}
+.etapes li{counter-increment:e;display:flex;gap:10px;font-size:15px;color:var(--doux)}
+.etapes li:before{content:counter(e);flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font:600 14px var(--titre)}
 .etapes li b{color:var(--texte)}
-.tech{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--doux)}
-.tech span{background:#ffffff12;color:var(--texte);border-radius:8px;padding:3px 10px;font-weight:700}
-.bts{margin-top:14px;font-size:14px;color:var(--doux)}
-.bts b{color:var(--c)}
+.sous-titre{font:600 13px var(--corps);text-transform:uppercase;letter-spacing:1px;color:var(--doux);margin:24px 0 10px}
+.infos{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;margin-top:22px;padding-top:18px;border-top:1px solid var(--bord);font-size:14.5px;color:var(--doux)}
+.outils{display:flex;flex-wrap:wrap;gap:6px}
+.outils span{background:var(--fond);border:1px solid var(--bord);border-radius:8px;padding:1px 9px;color:var(--texte);font-size:13.5px}
+.infos strong{color:var(--texte)}
 
-/* Couleurs de chaque produit */
-.pub.sport{--c:#7ee2a8;--c-ink:#0b2a1a;--fond:#0f1d17;--carte:#16281f;--doux:#9ab8a8}
-.pub.crm{--c:#8b8dff;--c-ink:#0f1030;--fond:#11121f;--carte:#1a1b2e;--doux:#a3a6c8}
+footer{border-top:1px solid var(--bord);padding:24px 0 40px;color:var(--doux);font-size:14px}
 
-.pv-intro{margin-bottom:16px}.pv-intro h2{font-size:22px}.pv-intro p{margin:6px 0 0;color:var(--muted);font-size:15px}
-.pv-nav{display:flex;gap:8px;overflow-x:auto;padding:12px 0 16px;scrollbar-width:none}
-.pv-nav a{text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;border:2px solid var(--line);background:var(--panel);border-radius:99px;padding:6px 14px;color:var(--ink)}
-.pub{scroll-margin-top:12px}
-@media (max-width:560px){.forts{grid-template-columns:1fr}}
-.app[data-b="3"]{--acc:#e8590c}
+@media (max-width:720px){
+  .entete{padding-top:36px}
+  .pub-haut{grid-template-columns:1fr;padding:24px}
+  .logo-projet{width:96px;border-radius:24px;font-size:44px;order:-1}
+  .pub-bas{padding:0 24px 24px}
+  .forts,.etapes{grid-template-columns:1fr}
+  .onglet{flex:none}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
-
 </head>
 <body>
-<div class="app" id="app" data-b="0">
-<header class="hero">
-<div class="who"><div class="av">IS</div><div><h1>Ilian SEGHIRI</h1><p>Étudiant en BTS SIO, option SISR</p><p>Ensitech — seghiri.ilian@yahoo.com</p></div></div>
-<p class="pitch">Je crée des sites, des applications et des outils pour entreprise, et je les mets en ligne moi-même.</p>
-<div class="hcta"><a class="hbtn" href="#preuves">✨ Voir mes réalisations</a><a class="hbtn alt" href="#competences">Mes compétences ↓</a></div>
-</header>
-<div class="stats" id="stats"></div>
-<div class="body">
-<section class="phares" aria-labelledby="ph">
-<div class="phares-h"><h2 id="ph">Mes 3 projets phares</h2><a href="#preuves">Tout voir →</a></div>
-<div class="pcards">
-<a class="pcard" href="#lootradar"><img src="preuves/lootradar-1.jpg" alt=""><div><b>LootRadar</b><span>🌐 Site internet</span></div></a>
-<a class="pcard" href="#sport-local"><img src="preuves/sport-local-1.jpg" alt=""><div><b>Sport Local</b><span>📱 Application</span></div></a>
-<a class="pcard" href="#carnet"><img src="preuves/carnet-crm-1.png" alt="" style="object-position:left top"><div><b>Carnet</b><span>💼 CRM</span></div></a>
+
+<div class="page">
+  <header class="entete">
+    <span class="etiquette">BTS SIO · option SISR · Ensitech</span>
+    <h1>Ilian SEGHIRI</h1>
+    <p class="role">Étudiant en BTS Services Informatiques aux Organisations</p>
+    <p class="resume">Je m'intéresse aux réseaux et à la cybersécurité. Ce portfolio regroupe mes projets, classés par thème : clique sur un onglet pour les voir.</p>
+    <div class="contact">
+      <a class="bouton" href="mailto:seghiri.ilian@yahoo.com">✉️ Me contacter</a>
+      <a class="bouton leger" href="https://github.com/ilivn" target="_blank" rel="noopener">Mon GitHub</a>
+    </div>
+  </header>
 </div>
-</section>
-<section class="guide" aria-labelledby="gd">
-<h2 id="gd">Comment lire ce portfolio ?</h2>
-<ol>
-<li><span>En bas de l'écran, choisis un <b>bloc de compétences</b> du BTS : Support, Réseaux ou Cybersécurité.</span></li>
-<li><span>Filtre par <b>type de projet</b> si tu veux : site, application ou autre.</span></li>
-<li><span><b>Clique sur une compétence</b> pour voir le projet, les outils utilisés, le lien et les preuves.</span></li>
-</ol>
-<div class="legend"><span class="tag t-site">🌐 Site internet</span><span class="tag t-app">📱 Application</span><span class="tag t-autre">🧩 Autre projet</span></div>
-</section>
-<hr class="sep" style="margin-top:24px">
-<div id="competences"></div>
-<div class="bh" id="bh"></div>
-<div class="chips" id="chips" role="group" aria-label="Filtrer par type de projet"></div>
-<main id="main"></main>
-<section id="preuves" hidden>
-<div class="pv-intro"><h2>🏆 Preuves — mes réalisations en ligne</h2><p>Un site, une application et un logiciel pour entreprise. Chacun est en ligne : tu peux l'ouvrir et l'essayer tout de suite.</p></div>
-<nav class="pv-nav" aria-label="Aller à un projet"><a href="#lootradar">🌐 LootRadar</a><a href="#sport-local">📱 Sport Local</a><a href="#carnet">💼 Carnet CRM</a></nav>
-<!-- ========== LootRadar ========== -->
-<article class="pub" id="lootradar">
-  <div class="pub-haut">
-    <div>
-      <p class="badge">Site internet</p>
-      <h2>Loot<span>Radar</span></h2>
-      <p class="slogan">Le jeu que tu veux, au prix le plus bas.
-        <small>Tape un nom de jeu, LootRadar compare plus de 30 boutiques officielles en une seconde.</small></p>
-      <div class="cta">
-        <a class="btn" href="https://ilivn.github.io/Site-Internet/" target="_blank" rel="noopener">Essayer le site →</a>
-        <a class="btn alt" href="https://github.com/ilivn/Site-Internet" target="_blank" rel="noopener">Voir le code</a>
-      </div>
-    </div>
-    <div class="ecran"><div class="tel"><img src="preuves/lootradar-1.jpg" alt="Accueil de LootRadar : barre de recherche et bons plans du moment" loading="lazy"></div></div>
-  </div>
-  <div class="pub-bas">
-    <div class="forts">
-      <div class="fort"><i>🔎</i><h3>Recherche instantanée</h3><p>Les résultats s'affichent pendant que tu tapes.</p></div>
-      <div class="fort"><i>💸</i><h3>Le vrai meilleur prix</h3><p>Steam, GOG, Fanatical… et le prix le plus bas jamais vu.</p></div>
-      <div class="fort"><i>🔥</i><h3>Bons plans du jour</h3><p>Meilleures affaires, grosses remises, jeux à moins de 5 $.</p></div>
-    </div>
-    <div class="etapes">
-      <h3>Comment ça marche</h3>
-      <ol>
-        <li><span><b>Cherche</b> le jeu par son nom.</span></li>
-        <li><span><b>Compare</b> les prix de toutes les boutiques.</span></li>
-        <li><span><b>Achète</b> au meilleur endroit en un clic.</span></li>
-      </ol>
-    </div>
-    <p class="tech">Fait avec <span>HTML</span><span>CSS</span><span>JavaScript</span><span>API CheapShark</span><span>GitHub Pages</span></p>
-    <p class="bts">Compétence BTS : <b>Développer la présence en ligne de l'organisation</b></p>
-  </div>
-</article>
 
-<!-- ========== Sport Local ========== -->
-<article class="pub sport" id="sport-local">
-  <div class="pub-haut">
-    <div>
-      <p class="badge">Application mobile et web</p>
-      <h2>Sport <span>Local</span></h2>
-      <p class="slogan">Trouve où bouger, et avec qui.
-        <small>Terrains, salles, piscines et parcours autour de toi sur une carte, plus des sportifs du coin pour jouer ensemble.</small></p>
-      <div class="cta">
-        <a class="btn" href="https://ilivn.github.io/Sport-Local-1/" target="_blank" rel="noopener">Ouvrir l'application →</a>
-      </div>
-    </div>
-    <div class="ecran"><div class="tel"><img src="preuves/sport-local-1.jpg" alt="Sport Local : carte des lieux de sport autour de l'utilisateur" loading="lazy"></div></div>
-  </div>
-  <div class="pub-bas">
-    <div class="forts">
-      <div class="fort"><i>🗺️</i><h3>Une carte de tout le sport</h3><p>Plus de 100 lieux trouvés à 2 km autour de toi.</p></div>
-      <div class="fort"><i>🏃</i><h3>Parcours et sessions</h3><p>Des parcours de course et des séances à rejoindre.</p></div>
-      <div class="fort"><i>💬</i><h3>Rencontre des sportifs</h3><p>Profils et messages pour s'organiser entre voisins.</p></div>
-    </div>
-    <div class="etapes">
-      <h3>Comment ça marche</h3>
-      <ol>
-        <li><span><b>Ouvre</b> la carte, elle te localise.</span></li>
-        <li><span><b>Filtre</b> : terrains, salles, piscines…</span></li>
-        <li><span><b>Rejoins</b> une session ou crée la tienne.</span></li>
-      </ol>
-    </div>
-    <p class="tech">Fait avec <span>Flutter</span><span>Supabase</span><span>OpenStreetMap</span><span>GitHub Pages</span></p>
-    <p class="bts">Compétence BTS : <b>Mettre à disposition des utilisateurs un service informatique</b></p>
-  </div>
-</article>
+<nav class="onglets" aria-label="Thèmes du portfolio">
+  <div class="page" role="tablist" id="onglets"></div>
+</nav>
 
-<!-- ========== Carnet CRM ========== -->
-<article class="pub crm" id="carnet">
-  <div class="pub-haut">
-    <div>
-      <p class="badge">Logiciel pour entreprise</p>
-      <h2><span>Carnet</span>, le CRM</h2>
-      <p class="slogan">Tous tes clients. Toutes tes ventes. Un seul écran.
-        <small>Un outil livré vierge : l'entreprise y met ses contacts, suit ses ventes et n'oublie plus aucune relance.</small></p>
-      <div class="cta">
-        <a class="btn" href="https://ilivn.github.io/CRM-base-/" target="_blank" rel="noopener">Tester le CRM →</a>
-        <a class="btn alt" href="https://github.com/ilivn/CRM-base-" target="_blank" rel="noopener">Voir le code</a>
-      </div>
-    </div>
-    <div class="ecran"><div class="pc"><div class="vitre"><img src="preuves/carnet-crm-1.png" alt="Tableau de bord du CRM Carnet" loading="lazy"></div><div class="pied"></div></div></div>
-  </div>
-  <div class="pub-bas">
-    <div class="forts">
-      <div class="fort"><i>📇</i><h3>Fiches contacts</h3><p>Clients et prospects rangés au même endroit.</p></div>
-      <div class="fort"><i>📊</i><h3>Ventes en un coup d'œil</h3><p>Pipeline à glisser-déposer, chiffre signé, taux de transformation.</p></div>
-      <div class="fort"><i>⏰</i><h3>Zéro oubli</h3><p>Relances avec date : appel, e-mail, rendez-vous.</p></div>
-    </div>
-    <div class="etapes">
-      <h3>Comment ça marche</h3>
-      <ol>
-        <li><span><b>Renseigne</b> le nom de ton entreprise.</span></li>
-        <li><span><b>Ajoute</b> tes clients et tes affaires en cours.</span></li>
-        <li><span><b>Suis</b> tes ventes sur le tableau de bord.</span></li>
-      </ol>
-    </div>
-    <p class="tech">Fait avec <span>HTML</span><span>CSS</span><span>JavaScript</span><span>localStorage</span><span>JSON</span></p>
-    <p class="bts">Compétence BTS : <b>Mettre à disposition des utilisateurs un service informatique</b></p>
-  </div>
-</article>
+<main class="page" id="contenu"></main>
 
-</section>
-
+<div class="page">
+  <footer>Ilian SEGHIRI · BTS SIO option SISR · Ensitech · seghiri.ilian@yahoo.com</footer>
 </div>
-</div>
-<nav class="tabs" aria-label="Blocs de compétences et preuves"><div id="tabs" role="tablist"></div></nav>
 
 <script>
-var S="Site internet",A="Application",O="Autre projet";
-var ICON={};ICON[S]="🌐";ICON[A]="📱";ICON[O]="🧩";
-var CLS={};CLS[S]="t-site";CLS[A]="t-app";CLS[O]="t-autre";
-// Colonnes d'un projet : [compétence, type, titre, description, outils, lien en ligne, lien du code, preuves]
-// Preuves : liste de [nom affiché, chemin du fichier dans le dossier preuves/]
-var blocs=[
-{tab:"Support",ico:"🎧",titre:"Bloc 1 — Support et mise à disposition de services informatiques",lead:"Compétences communes : gérer le parc, aider les utilisateurs, mettre un service en ligne.",groupes:[{rows:[
-["Gérer le patrimoine informatique",O,"Inventaire du parc avec GLPI","Recensement des postes et des licences, mise en place d'un suivi du matériel.","GLPI, Active Directory"],
-["Répondre aux incidents et aux demandes d'assistance",O,"Traitement de tickets de support","Prise en charge d'incidents, du diagnostic à la clôture, avec documentation de la solution.","GLPI, prise en main à distance"],
-null, // projet retiré : la place est gardée pour que les preuves jointes restent sur le bon projet
-["Travailler en mode projet",O,"Projet en équipe : [titre]","Planning, répartition des tâches, comptes rendus de réunion et bilan.","Trello ou GitLab, Gantt"],
-["Mettre à disposition des utilisateurs un service informatique",O,"Mise en place d'un serveur de fichiers","Création des comptes, des droits d'accès et de la documentation d'utilisation.","Windows Server ou Linux, Samba"],
-["Organiser son développement professionnel",O,"Veille technologique","Sujet suivi : [thème]. Sources, outil d'agrégation, fiches de synthèse datées.","Flux RSS, Feedly, Notion"],
-["Mettre à disposition des utilisateurs un service informatique",A,"Sport local, mon application","Application web pour trouver où faire du sport près de chez soi et avec qui : terrains, salles, piscines, pistes, parcours de course et sessions entre sportifs. Version web publiée en ligne.","Flutter, Supabase, GitHub Pages","https://ilivn.github.io/Sport-Local-1/",null,[["Capture de l'application","preuves/sport-local-1.jpg"]]],
-["Développer la présence en ligne de l'organisation",S,"LootRadar, comparateur de prix de jeux PC","Site qui compare le prix d'un jeu PC dans plus de 30 boutiques officielles (Steam, GOG, Gamesplanet, Fanatical, DLGamer, Green Man Gaming…). Recherche instantanée, fiche détaillée avec le meilleur prix et le plus bas prix historique, bons plans du moment. Données récupérées via une API REST, protection contre les failles XSS, hébergement sur GitHub Pages.","HTML, CSS, JavaScript, API CheapShark, GitHub Pages","https://ilivn.github.io/Site-Internet/","https://github.com/ilivn/Site-Internet",[["Capture du site","preuves/lootradar-1.jpg"]]],
-["Mettre à disposition des utilisateurs un service informatique",A,"Carnet, CRM pour entreprise","Application web de gestion de la relation client livrée vierge, prête à être vendue à une entreprise : paramètres de l'entreprise, fiches contacts, pipeline commercial en kanban (glisser-déposer), relances avec dates d'échéance, tableau de bord (pipeline en cours, chiffre signé, taux de transformation), sauvegarde et restauration des données. Interface responsive, mode clair et sombre, validation des saisies et protection contre les failles XSS.","HTML, CSS, JavaScript, localStorage, JSON","https://ilivn.github.io/CRM-base-/","https://github.com/ilivn/CRM-base-",[["Capture du CRM","preuves/carnet-crm-1.png"]]]]}]},
-{tab:"Réseaux",ico:"💻",titre:"Bloc 2 — Administration des systèmes et des réseaux (SISR)",lead:"Concevoir, installer, superviser et dépanner des infrastructures réseau.",groupes:[
-{nom:"SISR",long:"Administration des systèmes et des réseaux",rows:[
-["Concevoir une solution d'infrastructure réseau",O,"Conception d'un réseau d'entreprise","Plan d'adressage, VLAN, routage inter-VLAN, schémas logique et physique.","Packet Tracer, GNS3"],
-["Installer, tester et déployer une solution d'infrastructure réseau",S,"Serveur web hébergé et configuré","Installation, configuration, tests et procédure de déploiement.","Linux, Apache ou Nginx, Docker"],
-["Exploiter, dépanner et superviser une solution d'infrastructure réseau",O,"Supervision d'un parc","Sondes, alertes et tableau de bord pour suivre la disponibilité des services.","Zabbix ou Centreon, SNMP"]]}]},
-{tab:"Cybersécurité",ico:"🛡️",titre:"Bloc 3 — Cybersécurité des services informatiques",lead:"Protéger les données, les équipements et les applications.",groupes:[{rows:[
-["Protéger les données à caractère personnel",O,"Mise en conformité RGPD","Registre des traitements, analyse des données collectées et mesures de protection.","Fiches RGPD, charte informatique"],
-["Préserver l'identité numérique de l'organisation",S,"Sécurisation du site : HTTPS","Certificat, redirection HTTPS et en-têtes de sécurité sur le site déployé.","Let's Encrypt, Nginx ou Apache"],
-["Sécuriser les équipements et les usages des utilisateurs",O,"Pare-feu et politique d'accès","Règles de filtrage, segmentation du réseau, sensibilisation des utilisateurs.","pfSense, ACL"],
-["Garantir la disponibilité, l'intégrité et la confidentialité des services et des données",O,"Sauvegardes et audit de sécurité","Stratégie de sauvegarde, test de restauration, scan de vulnérabilités sur un environnement de test autorisé.","Veeam ou rsync, Nmap, OpenVAS"],
-["Assurer la cybersécurité d'une solution applicative et de son développement",A,"Sécurisation de l'application","Validation des saisies, mots de passe hachés, gestion des sessions, revue de code.","OWASP Top 10, bcrypt"]]}]}
+/* =====================================================================
+   LES DONNÉES DU PORTFOLIO
+   Pour ajouter un projet : l'ajouter dans la liste "projets" du bon onglet.
+   ===================================================================== */
+var onglets = [
+  {
+    id: "reseaux", nom: "Réseaux", icone: "🖧",
+    titre: "Réseaux",
+    intro: "Concevoir, installer, superviser et dépanner l'infrastructure réseau d'une entreprise.",
+    projets: []
+  },
+  {
+    id: "cybersecurite", nom: "Cybersécurité", icone: "🛡️",
+    titre: "Cybersécurité",
+    intro: "Protéger les données, les équipements et les applications d'une organisation.",
+    projets: []
+  },
+  {
+    id: "preuves", nom: "Preuves", icone: "🏆",
+    titre: "Preuves : mes réalisations en ligne",
+    intro: "Trois projets terminés et publiés. Chacun s'ouvre en un clic pour l'essayer.",
+    projets: [
+      {
+        nom: "LootRadar", type: "Site internet", icone: "🎮", couleur: "#16a34a", fond: "#e3f7e9",
+        slogan: "Le jeu que tu veux, au prix le plus bas.",
+        description: "Un comparateur de prix de jeux PC. Tu tapes le nom d'un jeu, le site compare plus de 30 boutiques officielles et te montre où l'acheter le moins cher.",
+        forts: [
+          ["Recherche instantanée", "Les résultats s'affichent pendant que tu tapes."],
+          ["Le vrai meilleur prix", "Steam, GOG, Fanatical… et le prix le plus bas jamais vu."],
+          ["Bons plans du jour", "Meilleures affaires, grosses remises, jeux à moins de 5 $."]
+        ],
+        etapes: ["<b>Cherche</b> le jeu par son nom.", "<b>Compare</b> les prix des boutiques.", "<b>Achète</b> au meilleur endroit."],
+        outils: ["HTML", "CSS", "JavaScript", "API CheapShark", "GitHub Pages"],
+        competence: "Développer la présence en ligne de l'organisation",
+        lien: "https://ilivn.github.io/Site-Internet/", texteLien: "Essayer le site",
+        code: "https://github.com/ilivn/Site-Internet"
+      },
+      {
+        nom: "Sport Local", type: "Application", icone: "🏃", couleur: "#0d9488", fond: "#dcf5f2",
+        slogan: "Trouve où bouger, et avec qui.",
+        description: "Une application mobile et web qui montre sur une carte les terrains, salles, piscines et parcours autour de toi, et qui permet de rencontrer des sportifs du coin.",
+        forts: [
+          ["Une carte de tout le sport", "Les lieux de sport à côté de chez toi."],
+          ["Parcours et sessions", "Des parcours de course et des séances à rejoindre."],
+          ["Rencontre des sportifs", "Profils et messages pour s'organiser."]
+        ],
+        etapes: ["<b>Ouvre</b> la carte, elle te localise.", "<b>Filtre</b> : terrains, salles, piscines…", "<b>Rejoins</b> une session ou crée la tienne."],
+        outils: ["Flutter", "Supabase", "OpenStreetMap", "GitHub Pages"],
+        competence: "Mettre à disposition des utilisateurs un service informatique",
+        lien: "https://ilivn.github.io/Sport-Local-1/", texteLien: "Ouvrir l'application",
+        code: null
+      },
+      {
+        nom: "Carnet", type: "CRM pour entreprise", icone: "💼", couleur: "#5b3df5", fond: "#ece8ff",
+        slogan: "Tous tes clients. Toutes tes ventes. Un seul écran.",
+        description: "Un logiciel de gestion de la relation client livré vierge : l'entreprise y entre ses contacts, suit ses ventes et n'oublie plus aucune relance.",
+        forts: [
+          ["Fiches contacts", "Clients et prospects rangés au même endroit."],
+          ["Ventes en un coup d'œil", "Pipeline à glisser-déposer et tableau de bord."],
+          ["Zéro oubli", "Relances datées : appel, e-mail, rendez-vous."]
+        ],
+        etapes: ["<b>Renseigne</b> le nom de l'entreprise.", "<b>Ajoute</b> les clients et les affaires.", "<b>Suis</b> les ventes sur le tableau de bord."],
+        outils: ["HTML", "CSS", "JavaScript", "localStorage", "JSON"],
+        competence: "Mettre à disposition des utilisateurs un service informatique",
+        lien: "https://ilivn.github.io/CRM-base-/", texteLien: "Tester le CRM",
+        code: "https://github.com/ilivn/CRM-base-"
+      }
+    ]
+  },
+  {
+    id: "autres", nom: "Autres projets", icone: "🧩",
+    titre: "Autres projets",
+    intro: "Veille technologique, travail en équipe, support et autres projets du BTS.",
+    projets: []
+  }
 ];
-var st={b:0,f:"Tous",g:0};
-function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
-function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
-function btn(label,pressed,fn,cls){var b=el("button",cls||"",label);b.type="button";b.setAttribute("aria-pressed",pressed);b.onclick=fn;return b}
-function all(){var r=[];blocs.forEach(function(b){b.groupes.forEach(function(g){r=r.concat(g.rows.filter(Boolean))})});return r}
-function link(label,href,cls){var l=el("a",cls,label);l.href=href;l.target="_blank";l.rel="noopener";return l}
-var TABS=blocs.concat([{tab:"Preuves",ico:"🏆"}]),PREUVES=blocs.length;
-function render(){
-var pv=st.b===PREUVES;
-["bh","chips","main"].forEach(function(id){document.getElementById(id).hidden=pv});
-document.getElementById("preuves").hidden=!pv;
-var b=blocs[pv?0:st.b],app=document.getElementById("app");app.setAttribute("data-b",st.b);
-var tabs=document.getElementById("tabs");clear(tabs);
-TABS.forEach(function(x,i){var t=el("button","tab");t.type="button";t.setAttribute("role","tab");t.setAttribute("aria-selected",i===st.b);
-t.appendChild(el("i","",x.ico));t.appendChild(document.createTextNode(x.tab));
-t.onclick=function(){st.b=i;st.g=0;history.replaceState(null,"",i===PREUVES?"#preuves":location.pathname);render();document.getElementById("competences").scrollIntoView({behavior:"smooth"})};tabs.appendChild(t)});
-if(pv)return;
-var rows=all(),uniq={};rows.forEach(function(r){uniq[r[0]]=1});
-var stats=document.getElementById("stats");clear(stats);
-[[Object.keys(uniq).length,"compétences"],[rows.length,"projets"],[3,"blocs"]].forEach(function(s){var d=el("div","stat");d.appendChild(el("b","",s[0]));d.appendChild(el("span","",s[1]));stats.appendChild(d)});
-var bh=document.getElementById("bh");clear(bh);bh.appendChild(el("h2","",b.titre));bh.appendChild(el("p","",b.lead));
-var chips=document.getElementById("chips");clear(chips);
-["Tous",S,A,O].forEach(function(f){chips.appendChild(btn((ICON[f]?ICON[f]+" ":"")+f,st.f===f,function(){st.f=f;render()},"chip"))});
-var main=document.getElementById("main");clear(main);
-if(b.groupes.length>1){var seg=el("div","seg");b.groupes.forEach(function(g,i){seg.appendChild(btn(g.nom,st.g===i,function(){st.g=i;render()}))});main.appendChild(seg)}
-var gi=b.groupes.length>1?st.g:0,g=b.groupes[gi];
-if(g.long)main.appendChild(el("p","gname",g.long));
-var n=0;
-g.rows.forEach(function(r,ri){
-if(!r||(st.f!=="Tous"&&r[1]!==st.f))return;
-var d=el("details"),s=el("summary");
-s.appendChild(el("div","ic "+CLS[r[1]],ICON[r[1]]));s.appendChild(el("h3","",r[0]));s.appendChild(el("span","chev","›"));
-d.appendChild(s);
-var c=el("div","det");c.appendChild(el("span","tag "+CLS[r[1]],r[1]));c.appendChild(el("h4","",r[2]));c.appendChild(el("p","",r[3]));
-var t=el("div","tools");r[4].split(", ").forEach(function(o){t.appendChild(el("span","",o))});c.appendChild(t);
-if(r[5]||r[6]){var ls=el("div","links");
-if(r[5])ls.appendChild(link(r[1]===S?"🚀 Ouvrir le site":"🚀 Ouvrir l'application",r[5],"open"));
-if(r[6])ls.appendChild(link("Voir le code sur GitHub",r[6],"open alt"));
-c.appendChild(ls)}
-if(r[7]&&r[7].length)c.appendChild(makeFiles(r[7]));
-d.appendChild(c);if(n===0)d.open=true;n++;main.appendChild(d)});
-if(!n)main.appendChild(el("div","empty","Aucun projet de ce type dans ce bloc."));
-}
-function makeFiles(list){
-var w=el("div","files");w.appendChild(el("div","ftitle","Preuves"));
-list.forEach(function(p){var r=el("div","frow"),a=el("a","flink","📎 "+p[0]);a.href=p[1];a.target="_blank";a.rel="noopener";r.appendChild(a);w.appendChild(r)});
-return w}
-// Ouvre l'onglet Preuves quand l'adresse finit par #preuves, #lootradar, #sport-local ou #carnet
-function suivreAncre(){
-var h=location.hash.slice(1);
-if(h==="competences"&&st.b===PREUVES){st.b=0;render();return}
-if(["preuves","lootradar","sport-local","carnet"].indexOf(h)<0)return;
-st.b=PREUVES;render();
-document.getElementById(h==="preuves"?"competences":h).scrollIntoView({behavior:"smooth"})}
-window.addEventListener("hashchange",suivreAncre);
-render();suivreAncre();
-</script>
 
+/* =====================================================================
+   L'AFFICHAGE (pas besoin de modifier en dessous)
+   ===================================================================== */
+function el(balise, classe, texte) {
+  var e = document.createElement(balise);
+  if (classe) e.className = classe;
+  if (texte !== undefined) e.textContent = texte;
+  return e;
+}
+function lien(texte, adresse, classe) {
+  var a = el("a", classe, texte);
+  a.href = adresse; a.target = "_blank"; a.rel = "noopener";
+  return a;
+}
+
+function carteProjet(p) {
+  var pub = el("article", "pub");
+  pub.style.setProperty("--c", p.couleur);
+  pub.style.setProperty("--c-fond", p.fond);
+
+  var haut = el("div", "pub-haut"), texte = el("div");
+  texte.appendChild(el("p", "pub-type", p.type));
+  texte.appendChild(el("h3", "", p.nom));
+  texte.appendChild(el("p", "slogan", p.slogan));
+  texte.appendChild(el("p", "pub-desc", p.description));
+  var actions = el("div", "actions");
+  if (p.lien) actions.appendChild(lien(p.texteLien + " →", p.lien, "bouton"));
+  if (p.code) actions.appendChild(lien("Voir le code", p.code, "bouton leger"));
+  texte.appendChild(actions);
+  haut.appendChild(texte);
+  var logo = el("div", "logo-projet", p.icone);
+  logo.setAttribute("aria-hidden", "true");
+  haut.appendChild(logo);
+  pub.appendChild(haut);
+
+  var bas = el("div", "pub-bas");
+  bas.appendChild(el("p", "sous-titre", "Points forts"));
+  var forts = el("div", "forts");
+  p.forts.forEach(function (f) {
+    var d = el("div", "fort");
+    d.appendChild(el("b", "", f[0]));
+    d.appendChild(el("span", "", f[1]));
+    forts.appendChild(d);
+  });
+  bas.appendChild(forts);
+
+  bas.appendChild(el("p", "sous-titre", "Comment ça marche"));
+  var etapes = el("ol", "etapes");
+  p.etapes.forEach(function (e) { var li = el("li"); li.innerHTML = "<span>" + e + "</span>"; etapes.appendChild(li); });
+  bas.appendChild(etapes);
+
+  var infos = el("div", "infos");
+  var outils = el("div", "outils");
+  p.outils.forEach(function (o) { outils.appendChild(el("span", "", o)); });
+  infos.appendChild(outils);
+  var comp = el("span");
+  comp.appendChild(document.createTextNode("Compétence BTS : "));
+  comp.appendChild(el("strong", "", p.competence));
+  infos.appendChild(comp);
+  bas.appendChild(infos);
+
+  pub.appendChild(bas);
+  return pub;
+}
+
+function afficher(id) {
+  var actif = onglets.filter(function (o) { return o.id === id; })[0] || onglets[2];
+
+  var barre = document.getElementById("onglets");
+  barre.innerHTML = "";
+  onglets.forEach(function (o) {
+    var b = el("button", "onglet");
+    b.type = "button";
+    b.setAttribute("role", "tab");
+    b.setAttribute("aria-selected", o === actif);
+    b.appendChild(el("span", "", o.icone));
+    b.appendChild(document.createTextNode(o.nom));
+    b.appendChild(el("span", "nb", String(o.projets.length)));
+    b.onclick = function () { history.replaceState(null, "", "#" + o.id); afficher(o.id); };
+    barre.appendChild(b);
+  });
+
+  var contenu = document.getElementById("contenu");
+  contenu.innerHTML = "";
+  var section = el("section", "panneau");
+  section.setAttribute("role", "tabpanel");
+  var tete = el("div", "panneau-tete");
+  tete.appendChild(el("h2", "", actif.titre));
+  tete.appendChild(el("p", "", actif.intro));
+  section.appendChild(tete);
+
+  if (actif.projets.length === 0) {
+    var vide = el("div", "vide");
+    vide.appendChild(el("i", "", "🚧"));
+    vide.appendChild(el("b", "", "Projets en cours"));
+    vide.appendChild(el("span", "", "Les projets de cette partie seront ajoutés au fil de l'année."));
+    section.appendChild(vide);
+  } else {
+    actif.projets.forEach(function (p) { section.appendChild(carteProjet(p)); });
+  }
+  contenu.appendChild(section);
+}
+
+afficher(location.hash.slice(1) || "preuves");
+window.addEventListener("hashchange", function () { afficher(location.hash.slice(1)); });
+</script>
 </body>
 </html>
