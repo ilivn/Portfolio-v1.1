@@ -61,7 +61,7 @@ a{color:inherit}
 
 /* ---------- Une « pub » de projet ---------- */
 .pub{--c:#5b3df5;--c-fond:#f0edff;margin-top:28px;background:var(--carte);border:1px solid var(--bord);border-radius:24px;overflow:hidden}
-.pub-haut{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding:32px;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 13%,transparent),transparent 70%)}
+.pub-haut{display:grid;grid-template-columns:1fr 1.25fr;gap:24px;align-items:center;padding:32px;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 13%,transparent),transparent 70%)}
 .pub-type{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--c);margin:0}
 .pub h3{font-size:clamp(30px,5vw,42px);letter-spacing:-.5px;margin-top:6px}
 .slogan{font:500 21px/1.35 var(--titre);margin:10px 0 0}
@@ -84,27 +84,109 @@ a{color:inherit}
 .outils span{background:var(--fond);border:1px solid var(--bord);border-radius:8px;padding:1px 9px;color:var(--texte);font-size:13.5px}
 .infos strong{color:var(--texte)}
 
-/* ---------- Teaser façon vidéo ---------- */
-.lecteur{--c:#5b3df5;border-radius:16px;overflow:hidden;background:#0c0c11;box-shadow:0 18px 40px rgba(0,0,0,.18)}
-.ecran{position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer;background:radial-gradient(circle at 30% 20%,color-mix(in srgb,var(--c) 70%,#000),#0c0c11 75%);color:#fff}
-.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px 24px;gap:6px}
-.scene.entre{animation:entre .6s cubic-bezier(.2,.8,.2,1)}
-.scene.entre .s-grand{animation:pop .7s cubic-bezier(.2,1.4,.4,1)}
-@keyframes entre{from{opacity:0;transform:translateY(14px) scale(.97)}}
-@keyframes pop{from{transform:scale(.3) rotate(-12deg)}}
-.s-grand{font-size:clamp(34px,6vw,52px);line-height:1}
-.s-titre{font:600 clamp(18px,3vw,26px)/1.2 var(--titre);max-width:90%}
-.s-petit{font-size:14px;opacity:.8;max-width:90%}
-.couverture{position:absolute;inset:0;border:0;padding:0;cursor:pointer;color:#fff;font:inherit;background:linear-gradient(160deg,var(--c),color-mix(in srgb,var(--c) 40%,#000));display:grid;place-items:center}
-.c-icone{font-size:64px;opacity:.35;position:absolute;right:18px;bottom:6px;transform:rotate(-10deg)}
-.c-titre{position:absolute;left:14px;top:12px;font-weight:600;font-size:14.5px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
-.c-duree{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.65);border-radius:6px;padding:1px 7px;font-size:13px;font-weight:600}
-.play{width:68px;height:48px;border-radius:14px;background:#ff0033;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .15s}
-.play:after{content:"";border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
+/* ---------- Pubs façon télé ---------- */
+.lecteur{--c:#5b3df5;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(0,0,0,.22)}
+.ecran{position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer;background:#000;color:#fff;container-type:inline-size;font-family:var(--corps)}
+.ecran:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55));z-index:3}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2cqw;padding:5cqw;text-align:center;animation:fondu .45s ease both}
+@keyframes fondu{from{opacity:0;filter:blur(6px)}}
+.sc *{animation-delay:var(--d,0s);animation-fill-mode:both}
+.titre-tv{font:700 6.4cqw/1.08 var(--titre);letter-spacing:-.2cqw;max-width:88%}
+.titre-tv em{font-style:normal;color:var(--c)}
+.mini{font-size:2.4cqw;opacity:.85;max-width:80%}
+.monte{animation:monte .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes monte{from{opacity:0;transform:translateY(4cqw)}}
+.pop{animation:pop .6s cubic-bezier(.2,1.5,.4,1)}
+@keyframes pop{from{opacity:0;transform:scale(.3)}}
+.zoom{animation:zoom 3.5s ease-out}
+@keyframes zoom{from{transform:scale(1.25)}}
+.glisse{animation:glisse .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes glisse{from{opacity:0;transform:translateX(12cqw)}}
+.tampon{animation:tampon .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes tampon{from{opacity:0;transform:scale(3) rotate(-14deg)}}
+.tremble{animation:tremble .5s ease-in-out 3}
+@keyframes tremble{25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+
+/* Sous-titres comme une voix off */
+.voix{position:absolute;left:50%;bottom:4cqw;transform:translateX(-50%);z-index:4;max-width:86%;background:rgba(0,0,0,.72);border-radius:.8cqw;padding:.6cqw 1.6cqw;font-size:2.3cqw;line-height:1.35;text-align:center}
+.voix:empty{display:none}
+
+/* Fausse interface (écran d'appli) */
+.ui{width:62cqw;background:#14161d;border:.25cqw solid #ffffff1c;border-radius:2.2cqw;padding:2.2cqw;text-align:left;box-shadow:0 3cqw 6cqw rgba(0,0,0,.5)}
+.ui-barre{display:flex;align-items:center;gap:1.2cqw;background:#0b0c11;border:.25cqw solid #ffffff22;border-radius:5cqw;padding:1.4cqw 2cqw;font-size:2.6cqw}
+.tape{display:inline-block;overflow:hidden;white-space:nowrap;border-right:.3cqw solid var(--c);font-family:ui-monospace,Consolas,monospace;width:0;animation:tape 1.4s steps(var(--n)) forwards,curseur .6s step-end infinite}
+@keyframes tape{to{width:calc(var(--n) * 1ch)}}
+@keyframes curseur{50%{border-color:transparent}}
+.prix{display:flex;justify-content:space-between;align-items:center;font-size:2.5cqw;padding:1.3cqw 1.6cqw;border-radius:1.4cqw;background:#ffffff0a;margin-top:1.2cqw}
+.prix b{font-family:ui-monospace,Consolas,monospace}
+.prix.top{background:color-mix(in srgb,var(--c) 22%,transparent);outline:.3cqw solid var(--c);animation:glisse .6s cubic-bezier(.2,.8,.2,1),brille 1.2s ease-in-out .9s 2}
+@keyframes brille{50%{box-shadow:0 0 4cqw var(--c)}}
+.badge-tv{display:inline-block;background:var(--c);color:#000;font-weight:800;font-size:1.8cqw;border-radius:1cqw;padding:.2cqw 1cqw;margin-left:1cqw}
+.etiquette-prix{font:800 9cqw/1 var(--titre);color:#ff4d4d;display:inline-block}
+.barre{text-decoration:line-through;opacity:.5;font-size:4cqw;font-weight:700}
+.gros-chiffre{font:800 13cqw/1 var(--titre);color:var(--c)}
+
+/* Carte (Sport Local) */
+.plan{position:absolute;inset:0;background:
+  linear-gradient(90deg,transparent 47%,#2d3d34 47%,#2d3d34 53%,transparent 53%),
+  linear-gradient(0deg,transparent 60%,#2d3d34 60%,#2d3d34 65%,transparent 65%),
+  linear-gradient(35deg,transparent 30%,#33463b 30%,#33463b 33%,transparent 33%),
+  repeating-linear-gradient(0deg,#1b2620 0 5cqw,#1e2a23 5cqw 10cqw),#1b2620}
+.radar{position:absolute;left:50%;top:50%;width:10cqw;height:10cqw;margin:-5cqw;border-radius:50%;border:.4cqw solid var(--c);animation:onde 1.8s ease-out infinite}
+@keyframes onde{to{transform:scale(5);opacity:0}}
+.moi{position:absolute;left:50%;top:50%;width:2.6cqw;height:2.6cqw;margin:-1.3cqw;border-radius:50%;background:#3d8bff;border:.5cqw solid #fff}
+.pin{position:absolute;font-size:4.4cqw;filter:drop-shadow(0 .6cqw .8cqw rgba(0,0,0,.6))}
+.fiche{position:absolute;left:5cqw;right:5cqw;bottom:13cqw;background:#101814ee;border:.25cqw solid #ffffff1c;border-radius:2cqw;padding:2cqw;text-align:left;display:flex;align-items:center;gap:2cqw}
+.fiche .grosse{font-size:5cqw}
+.fiche b{display:block;font:600 3cqw var(--titre)}
+.fiche span{font-size:2.2cqw;opacity:.75}
+.bouton-tv{margin-left:auto;background:var(--c);color:#04130b;font-weight:800;font-size:2.4cqw;border-radius:1.4cqw;padding:1.2cqw 2.4cqw;white-space:nowrap}
+.clic{animation:clic .35s ease 1.6s both}
+@keyframes clic{50%{transform:scale(.88)}}
+.ok{position:absolute;inset:0;display:grid;place-items:center;font:700 3cqw var(--titre);background:var(--c);color:#04130b;border-radius:1.4cqw;opacity:0;animation:apparait .3s ease 1.9s forwards}
+@keyframes apparait{to{opacity:1}}
+.bulles{display:flex;flex-direction:column;gap:1.4cqw;width:56cqw}
+.bulle{max-width:75%;padding:1.4cqw 2cqw;border-radius:2.4cqw;font-size:2.7cqw;text-align:left}
+.bulle.eux{background:#2a3a31;align-self:flex-start;border-bottom-left-radius:.4cqw}
+.bulle.moi2{background:var(--c);color:#04130b;align-self:flex-end;border-bottom-right-radius:.4cqw;font-weight:700}
+
+/* CRM (Carnet) */
+.postit{position:absolute;width:15cqw;padding:1.4cqw;background:#ffe066;color:#3b3200;font:600 2cqw/1.25 var(--corps);text-align:left;box-shadow:0 1cqw 2cqw rgba(0,0,0,.4);animation:tombe .7s cubic-bezier(.3,1.3,.5,1) both}
+@keyframes tombe{from{opacity:0;transform:translateY(-30cqw) rotate(30deg)}}
+.kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqw;width:78cqw;position:relative}
+.col{background:#ffffff0c;border-radius:1.6cqw;padding:1.4cqw;min-height:24cqw;text-align:left}
+.col h4{margin:0 0 1.2cqw;font:600 2.2cqw var(--titre);opacity:.75}
+.k{text-align:left;background:#22243a;border-radius:1.2cqw;padding:1.2cqw;font-size:2.1cqw;margin-bottom:1cqw;border-left:.6cqw solid #ffffff33}
+.k b{display:block;font-size:2cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.k.vole{position:absolute;left:1.4cqw;top:5.4cqw;width:calc((78cqw - 3.2cqw)/3 - 2.8cqw);border-left-color:var(--c);box-shadow:0 2cqw 3cqw rgba(0,0,0,.5);animation:vole 2.6s cubic-bezier(.6,0,.3,1) .5s both}
+@keyframes vole{0%{transform:none}40%{transform:translateX(calc(78cqw/3 + .5cqw)) rotate(3deg)}55%{transform:translateX(calc(78cqw/3 + .5cqw))}95%,100%{transform:translateX(calc(78cqw*2/3 + 1cqw));border-left-color:#2fd27a}}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:2cqw;width:78cqw}
+.kpi{background:#ffffff0c;border-radius:2cqw;padding:2.4cqw;text-align:left}
+.kpi b{display:block;white-space:nowrap;font:700 4.4cqw/1 var(--titre);color:var(--c);font-variant-numeric:tabular-nums}
+.kpi span{font-size:2cqw;opacity:.75}
+.notif{width:60cqw;display:flex;gap:2cqw;align-items:center;text-align:left;background:#f4f4f8;color:#14141c;border-radius:2.4cqw;padding:2.2cqw;box-shadow:0 3cqw 6cqw rgba(0,0,0,.5);animation:notif .7s cubic-bezier(.2,1.3,.4,1) .3s both}
+@keyframes notif{from{opacity:0;transform:translateY(-20cqw)}}
+.notif .ico{font-size:5cqw}
+.notif b{display:block;font:600 2.8cqw var(--titre)}
+.notif span{font-size:2.2cqw;opacity:.7}
+
+/* Logo de fin */
+.marque{display:flex;align-items:center;gap:2cqw;font:700 8cqw/1 var(--titre);letter-spacing:-.3cqw}
+.marque i{width:9cqw;height:9cqw;border-radius:2.4cqw;display:grid;place-items:center;font-style:normal;font-size:5cqw;background:var(--c);color:#000}
+.adresse{font:600 2.6cqw ui-monospace,Consolas,monospace;background:#ffffff14;border-radius:5cqw;padding:.8cqw 2.4cqw}
+.mention{font-size:1.8cqw;opacity:.55;position:absolute;bottom:2.4cqw;right:3cqw}
+
+/* Couverture et contrôles */
+.couverture{position:absolute;inset:0;z-index:5;border:0;padding:0;cursor:pointer;color:#fff;font:inherit;display:grid;place-items:center;background:radial-gradient(circle at 25% 20%,color-mix(in srgb,var(--c) 75%,#000),#050507 80%)}
+.c-nom{position:absolute;left:4cqw;bottom:4cqw;font:700 6cqw/1 var(--titre);letter-spacing:-.2cqw;text-align:left}
+.c-nom small{display:block;font:500 2.4cqw var(--corps);opacity:.8;margin-top:1cqw;letter-spacing:0}
+.c-duree{position:absolute;right:2.4cqw;top:2.4cqw;background:rgba(0,0,0,.7);border-radius:.8cqw;padding:.2cqw 1.2cqw;font-size:2.2cqw;font-weight:600}
+.play{width:12cqw;height:8.4cqw;border-radius:2.4cqw;background:#ff0033;display:grid;place-items:center;box-shadow:0 1cqw 3cqw rgba(0,0,0,.4);transition:transform .15s}
+.play:after{content:"";border-left:3cqw solid #fff;border-top:1.9cqw solid transparent;border-bottom:1.9cqw solid transparent;margin-left:.7cqw}
 .couverture:hover .play{transform:scale(1.08)}
 .controles{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#0c0c11;color:#fff}
-.c-btn{border:0;background:transparent;color:#fff;font:600 14px var(--corps);cursor:pointer;width:28px;padding:4px 0}
-.piste{flex:1;height:5px;border-radius:99px;background:rgba(255,255,255,.22);cursor:pointer;position:relative}
+.c-btn{border:0;background:transparent;color:#fff;font:600 14px var(--corps);cursor:pointer;min-width:28px;padding:4px 0}
+.piste{flex:1;height:5px;border-radius:99px;background:rgba(255,255,255,.22);cursor:pointer}
 .rempli{height:100%;width:0;border-radius:99px;background:#ff0033}
 .c-temps{font-size:12.5px;opacity:.85;font-variant-numeric:tabular-nums;white-space:nowrap}
 
@@ -127,7 +209,7 @@ footer{border-top:1px solid var(--bord);padding:24px 0 40px;color:var(--doux);fo
     <span class="etiquette">BTS SIO · option SISR · Ensitech</span>
     <h1>Ilian SEGHIRI</h1>
     <p class="role">Étudiant en BTS Services Informatiques aux Organisations</p>
-    <p class="resume">Je m'intéresse aux réseaux et à la cybersécurité. Ce portfolio regroupe mes projets, présentés juste en dessous : lance un teaser pour les découvrir.</p>
+    <p class="resume">Je m'intéresse aux réseaux et à la cybersécurité. Ce portfolio regroupe mes projets, présentés juste en dessous : regarde leur pub pour les découvrir.</p>
     <div class="contact">
       <a class="bouton" href="mailto:seghiri.ilian@yahoo.com">✉️ Me contacter</a>
       <a class="bouton leger" href="https://github.com/ilivn" target="_blank" rel="noopener">Mon GitHub</a>
@@ -154,7 +236,7 @@ var onglets = [
   {
     id: "projets", nom: "Mes projets", icone: "🚀",
     titre: "Mes projets",
-    intro: "Trois projets terminés et publiés. Lance le teaser pour les découvrir, puis essaie-les en un clic.",
+    intro: "Trois projets terminés et publiés. Regarde leur pub, puis essaie-les en un clic.",
     projets: [
       {
         nom: "LootRadar", type: "Site internet", icone: "🎮", couleur: "#16a34a", fond: "#e3f7e9",
@@ -221,104 +303,193 @@ function lien(texte, adresse, classe) {
 }
 
 
-/* ---------- Teaser façon vidéo ---------- */
-var DUREE_SCENE = 2600; // durée d'une scène en millisecondes
-var lecteurs = [];
+/* ---------- Les pubs (une par projet) ----------
+   Chaque scène : d = durée en ms, voix = texte dit par la voix off,
+   fond = couleur de fond, html = ce qui s'affiche. */
+var PUBS = {
+  "LootRadar": [
+    { d: 3200, fond: "#0a0b10", voix: "Tu paies encore tes jeux au prix fort ?",
+      html: '<div class="pop"><div class="etiquette-prix tremble" style="--d:.6s">59,99 €</div></div><div class="titre-tv monte" style="--d:.5s">Tu paies encore tes jeux<br>au prix fort ?</div>' },
+    { d: 2800, fond: "radial-gradient(circle at 50% 40%,#1d2a0a,#07080b 70%)", voix: "Avec LootRadar, c'est fini.",
+      html: '<div class="marque zoom"><i>◎</i><span>Loot<span style="color:var(--c)">Radar</span></span></div><div class="mini monte" style="--d:.6s">Le comparateur de prix des jeux PC</div>' },
+    { d: 3200, fond: "#0a0b10", voix: "Tape le nom de ton jeu…",
+      html: '<div class="ui pop"><div class="ui-barre">🔍 <span class="tape" style="--n:10">Elden Ring</span></div></div>' },
+    { d: 4000, fond: "#0a0b10", voix: "LootRadar compare plus de trente boutiques officielles en une seconde.",
+      html: '<div class="ui"><div class="ui-barre">🔍 Elden Ring</div>' +
+            '<div class="prix glisse" style="--d:.2s">Steam <b>59,99 €</b></div>' +
+            '<div class="prix glisse" style="--d:.45s">Green Man Gaming <b>41,99 €</b></div>' +
+            '<div class="prix top" style="--d:.7s"><span>Fanatical <span class="badge-tv">MEILLEUR PRIX</span></span><b>32,49 €</b></div></div>' },
+    { d: 3200, fond: "radial-gradient(circle at 50% 50%,#22300c,#07080b 70%)", voix: "Le même jeu. Presque moitié prix.",
+      html: '<div class="barre monte">59,99 €</div><div class="gros-chiffre tampon" style="--d:.4s">−46 %</div><div class="titre-tv monte" style="--d:.9s">Le même jeu. <em>Presque moitié prix.</em></div>' },
+    { d: 3800, fond: "#07080b", sansSousTitre: true, voix: "LootRadar. Le jeu que tu veux, au prix le plus bas.",
+      html: '<div class="marque pop"><i>◎</i><span>Loot<span style="color:var(--c)">Radar</span></span></div><div class="titre-tv monte" style="--d:.4s;font-size:3.6cqw">Le jeu que tu veux, au prix le plus bas.</div><div class="adresse monte" style="--d:.8s">ilivn.github.io/Site-Internet</div><div class="mention">Gratuit · sans inscription</div>' }
+  ],
 
-function scenesDe(p) {
-  var s = [{ grand: p.icone, titre: p.nom, petit: p.type }];
-  s.push({ grand: "💬", titre: p.slogan, petit: "" });
-  var emojis = ["⚡", "⭐", "✅"];
-  p.forts.forEach(function (f, i) { s.push({ grand: emojis[i], titre: f[0], petit: f[1] }); });
-  s.push({ grand: "👉", titre: "Essaie-le maintenant", petit: p.lien.replace("https://", "") });
-  return s;
-}
+  "Sport Local": [
+    { d: 3000, fond: "linear-gradient(160deg,#0f1d17,#050807)", voix: "Envie de bouger ce soir ? Mais où, et avec qui ?",
+      html: '<div class="titre-tv monte">Envie de bouger ce soir ?</div><div class="titre-tv monte" style="--d:.7s;opacity:.6">Mais où… et avec qui ?</div>' },
+    { d: 2800, fond: "radial-gradient(circle at 50% 40%,#123526,#050807 70%)", voix: "Voici Sport Local.",
+      html: '<div class="marque zoom"><i>🏃</i><span>Sport <span style="color:var(--c)">Local</span></span></div><div class="mini monte" style="--d:.6s">L\'appli du sport près de chez toi</div>' },
+    { d: 4000, fond: "#1b2620", voix: "Ouvre la carte : terrains, salles, piscines, tout ce qui est autour de toi.",
+      html: '<div class="plan"></div><div class="radar"></div><div class="moi"></div>' +
+            '<span class="pin pop" style="left:22%;top:26%;--d:.3s">🏀</span><span class="pin pop" style="left:68%;top:20%;--d:.5s">⚽</span>' +
+            '<span class="pin pop" style="left:76%;top:58%;--d:.7s">🏊</span><span class="pin pop" style="left:30%;top:64%;--d:.9s">🏋️</span>' +
+            '<span class="pin pop" style="left:52%;top:14%;--d:1.1s">🎾</span><span class="pin pop" style="left:12%;top:46%;--d:1.3s">🏃</span>' +
+            '<div class="fiche monte" style="--d:1.6s;bottom:auto;top:4cqw"><span class="grosse">📍</span><div><b>111 lieux pour pratiquer</b><span>Autour de toi · rayon 2 km</span></div></div>' },
+    { d: 3600, fond: "#1b2620", voix: "Un match de foot ce soir ? Rejoins la session en un clic.",
+      html: '<div class="plan" style="opacity:.35"></div>' +
+            '<div class="fiche monte" style="position:relative;left:auto;right:auto;bottom:auto;width:70cqw"><span class="grosse">⚽</span><div><b>Foot 5 contre 5 · 19 h</b><span>City stade · 410 m · 8 joueurs sur 10</span></div>' +
+            '<span class="bouton-tv clic" style="position:relative">Rejoindre<span class="ok">✓ Inscrit</span></span></div>' },
+    { d: 3400, fond: "#0f1d17", voix: "Et organise-toi avec les sportifs du coin.",
+      html: '<div class="bulles"><div class="bulle eux monte" style="--d:.2s">On est 8, il manque 2 joueurs ! ⚽</div><div class="bulle moi2 monte" style="--d:1s">J\'arrive avec un pote 👋</div><div class="bulle eux monte" style="--d:1.8s">Parfait, rendez-vous à 19 h !</div></div>' },
+    { d: 3800, fond: "radial-gradient(circle at 50% 40%,#123526,#050807 70%)", sansSousTitre: true, voix: "Sport Local. Trouve où bouger, et avec qui.",
+      html: '<div class="marque pop"><i>🏃</i><span>Sport <span style="color:var(--c)">Local</span></span></div><div class="titre-tv monte" style="--d:.4s;font-size:3.6cqw">Trouve où bouger, et avec qui.</div><div class="adresse monte" style="--d:.8s">ilivn.github.io/Sport-Local-1</div><div class="mention">Sur mobile et sur le web</div>' }
+  ],
+
+  "Carnet": [
+    { d: 3400, fond: "#2a2410", voix: "Des post-it partout. Des clients oubliés. Des ventes perdues.",
+      html: '<div class="postit" style="left:8%;top:12%;--d:.0s;transform:rotate(-6deg)">Rappeler M. Durand ???</div>' +
+            '<div class="postit" style="left:38%;top:30%;--d:.3s">Devis boulangerie… envoyé ?</div>' +
+            '<div class="postit" style="left:68%;top:10%;--d:.6s">RDV mardi ou jeudi ?</div>' +
+            '<div class="postit" style="left:18%;top:56%;--d:.9s">Client perdu 😞</div>' +
+            '<div class="postit" style="left:62%;top:52%;--d:1.2s">Relance !!!</div>' },
+    { d: 2800, fond: "radial-gradient(circle at 50% 40%,#25265a,#07070f 70%)", voix: "Rangez tout dans Carnet.",
+      html: '<div class="marque zoom"><i>◆</i>Carnet</div><div class="mini monte" style="--d:.6s">Le CRM des petites entreprises</div>' },
+    { d: 4000, fond: "#0f101c", voix: "Suivez chaque affaire, du premier contact jusqu'à la signature.",
+      html: '<div class="kanban"><div class="col"><h4>Nouveau</h4><div class="k" style="visibility:hidden"><b>.</b>.</div><div class="k"><b>Garage Lopez</b>800 €</div></div>' +
+            '<div class="col"><h4>Devis envoyé</h4><div class="k"><b>Fleuriste Rose</b>1 200 €</div></div>' +
+            '<div class="col"><h4>Gagné ✓</h4><div class="k" style="visibility:hidden"><b>.</b>.</div><div class="k" style="border-left-color:#2fd27a"><b>Salon Coiffure</b>950 €</div></div>' +
+            '<div class="k vole"><b>Boulangerie Martin</b>2 400 €</div></div>' },
+    { d: 3600, fond: "#0f101c", voix: "Et voyez vos ventes en un coup d'œil.",
+      html: '<div class="kpis"><div class="kpi monte"><b data-compte="12400" data-fin=" €">0</b><span>Chiffre signé</span></div>' +
+            '<div class="kpi monte" style="--d:.2s"><b data-compte="38" data-fin=" %">0</b><span>Taux de transformation</span></div>' +
+            '<div class="kpi monte" style="--d:.4s"><b data-compte="27">0</b><span>Clients</span></div></div>' },
+    { d: 3200, fond: "radial-gradient(circle at 50% 30%,#25265a,#07070f 70%)", voix: "Carnet vous rappelle vos relances. Plus aucun client oublié.",
+      html: '<div class="notif"><span class="ico">⏰</span><div><b>Relance aujourd\'hui · 14 h</b><span>Appeler la Boulangerie Martin pour la signature</span></div></div><div class="titre-tv monte" style="--d:1s;font-size:4.4cqw">Plus aucun client <em>oublié.</em></div>' },
+    { d: 3800, fond: "#07070f", sansSousTitre: true, voix: "Carnet. Tous vos clients, toutes vos ventes, un seul écran.",
+      html: '<div class="marque pop"><i>◆</i>Carnet</div><div class="titre-tv monte" style="--d:.4s;font-size:3.6cqw">Tous vos clients. Toutes vos ventes. Un seul écran.</div><div class="adresse monte" style="--d:.8s">ilivn.github.io/CRM-base-</div><div class="mention">Livré vierge · prêt à l\'emploi</div>' }
+  ]
+};
+
+/* ---------- Le lecteur ---------- */
+var lecteurs = [];
+var COULEUR_PUB = { "LootRadar": "#c6f35a", "Sport Local": "#5fe0a0", "Carnet": "#8b8dff" };
 
 function temps(ms) {
-  var sec = Math.round(ms / 1000);
+  var sec = Math.floor(ms / 1000);
   return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
 }
 
-function teaser(p) {
-  var scenes = scenesDe(p), total = scenes.length * DUREE_SCENE;
+function lecteurPub(p) {
+  var scenes = PUBS[p.nom], total = 0, debuts = [];
+  scenes.forEach(function (s) { debuts.push(total); total += s.d; });
+
   var boite = el("div", "lecteur");
-  boite.style.setProperty("--c", p.couleur);
-
+  boite.style.setProperty("--c", COULEUR_PUB[p.nom] || p.couleur);
   var ecran = el("div", "ecran");
-  var scene = el("div", "scene");
-  var sGrand = el("div", "s-grand"), sTitre = el("div", "s-titre"), sPetit = el("div", "s-petit");
-  scene.appendChild(sGrand); scene.appendChild(sTitre); scene.appendChild(sPetit);
-  ecran.appendChild(scene);
+  var calque = el("div"), voix = el("div", "voix");
+  ecran.appendChild(calque); ecran.appendChild(voix);
 
-  // Couverture (avant de lancer)
   var couverture = el("button", "couverture");
   couverture.type = "button";
-  couverture.setAttribute("aria-label", "Lancer le teaser de " + p.nom);
-  var cIcone = el("span", "c-icone", p.icone);
-  var cTitre = el("span", "c-titre", "Teaser · " + p.nom);
-  var play = el("span", "play");
-  var duree = el("span", "c-duree", temps(total));
-  couverture.appendChild(cTitre); couverture.appendChild(cIcone); couverture.appendChild(play); couverture.appendChild(duree);
+  couverture.setAttribute("aria-label", "Regarder la pub de " + p.nom);
+  var nom = el("span", "c-nom", p.nom); nom.appendChild(el("small", "", p.slogan));
+  couverture.appendChild(nom);
+  couverture.appendChild(el("span", "play"));
+  couverture.appendChild(el("span", "c-duree", temps(total)));
   ecran.appendChild(couverture);
   boite.appendChild(ecran);
 
-  // Barre de contrôle
   var barre = el("div", "controles");
-  var bPlay = el("button", "c-btn", "▶"); bPlay.type = "button"; bPlay.setAttribute("aria-label", "Lecture / pause");
-  var piste = el("div", "piste"), rempli = el("div", "rempli");
-  piste.appendChild(rempli);
+  var bPlay = el("button", "c-btn", "▶"); bPlay.type = "button"; bPlay.setAttribute("aria-label", "Lecture ou pause");
+  var piste = el("div", "piste"), rempli = el("div", "rempli"); piste.appendChild(rempli);
   var compteur = el("span", "c-temps", "0:00 / " + temps(total));
-  barre.appendChild(bPlay); barre.appendChild(piste); barre.appendChild(compteur);
+  var bSon = el("button", "c-btn", "🔇"); bSon.type = "button"; bSon.title = "Voix off";
+  barre.appendChild(bPlay); barre.appendChild(piste); barre.appendChild(compteur); barre.appendChild(bSon);
   boite.appendChild(barre);
 
-  var lecteur = { position: 0, enCours: false, debut: 0, sceneActuelle: -1 };
+  var l = { position: 0, enCours: false, debut: 0, scene: -1, son: false };
 
+  function parler(texte) {
+    if (!l.son || !window.speechSynthesis) return;
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(texte);
+    u.lang = "fr-FR"; u.rate = 1.05;
+    var v = speechSynthesis.getVoices().filter(function (x) { return x.lang.indexOf("fr") === 0; })[0];
+    if (v) u.voice = v;
+    speechSynthesis.speak(u);
+  }
+  function compter(racine) {
+    racine.querySelectorAll("[data-compte]").forEach(function (n) {
+      var fin = +n.dataset.compte, t0 = performance.now();
+      (function pas(t) {
+        var k = Math.min(1, (t - t0) / 1600);
+        n.textContent = Math.round(fin * (1 - Math.pow(1 - k, 3))).toLocaleString("fr-FR") + (n.dataset.fin || "");
+        if (k < 1 && l.scene !== -1) requestAnimationFrame(pas);
+      })(t0);
+    });
+  }
   function montrer(i) {
-    if (i === lecteur.sceneActuelle) return;
-    lecteur.sceneActuelle = i;
-    var sc = scenes[i];
-    sGrand.textContent = sc.grand; sTitre.textContent = sc.titre; sPetit.textContent = sc.petit;
-    scene.classList.remove("entre"); void scene.offsetWidth; scene.classList.add("entre");
+    if (i === l.scene) return;
+    l.scene = i;
+    var s = scenes[i];
+    ecran.style.background = s.fond;
+    calque.innerHTML = '<div class="sc">' + s.html + "</div>";
+    voix.textContent = s.sansSousTitre ? "" : s.voix;
+    compter(calque);
+    if (l.enCours) parler(s.voix);
+  }
+  function sceneA(pos) {
+    for (var i = scenes.length - 1; i >= 0; i--) if (pos >= debuts[i]) return i;
+    return 0;
   }
   function dessiner() {
-    rempli.style.width = (lecteur.position / total * 100) + "%";
-    compteur.textContent = temps(lecteur.position) + " / " + temps(total);
-    montrer(Math.min(scenes.length - 1, Math.floor(lecteur.position / DUREE_SCENE)));
+    rempli.style.width = (l.position / total * 100) + "%";
+    compteur.textContent = temps(l.position) + " / " + temps(total);
+    montrer(sceneA(l.position));
   }
   function boucle(t) {
-    if (!lecteur.enCours) return;
-    lecteur.position = Math.max(0, Math.min(total, t - lecteur.debut));
+    if (!l.enCours) return;
+    l.position = Math.max(0, Math.min(total, t - l.debut));
     dessiner();
-    if (lecteur.position >= total) { pause(); bPlay.textContent = "↺"; return; }
+    if (l.position >= total) { pause(); bPlay.textContent = "↺"; return; }
     requestAnimationFrame(boucle);
   }
   function lire() {
-    lecteurs.forEach(function (l) { if (l !== lecteur) l.pause(); });
-    if (lecteur.position >= total) lecteur.position = 0;
+    lecteurs.forEach(function (x) { if (x !== l) x.pause(); });
+    if (l.position >= total) { l.position = 0; l.scene = -1; }
     couverture.hidden = true;
-    lecteur.enCours = true;
-    lecteur.debut = performance.now() - lecteur.position;
+    l.enCours = true;
+    l.debut = performance.now() - l.position;
     bPlay.textContent = "❚❚";
-    boite.classList.add("joue");
+    var i = sceneA(l.position);
+    if (i === l.scene) parler(scenes[i].voix);
     requestAnimationFrame(boucle);
   }
   function pause() {
-    lecteur.enCours = false;
+    l.enCours = false;
     bPlay.textContent = "▶";
-    boite.classList.remove("joue");
+    if (l.son && window.speechSynthesis) speechSynthesis.cancel();
   }
-  lecteur.pause = pause;
-  lecteurs.push(lecteur);
+  l.pause = pause;
+  lecteurs.push(l);
 
-  couverture.onclick = lire;
-  bPlay.onclick = function () { lecteur.enCours ? pause() : lire(); };
-  ecran.addEventListener("click", function (e) { if (e.target !== couverture && !couverture.contains(e.target)) { lecteur.enCours ? pause() : lire(); } });
+  couverture.onclick = function (e) { e.stopPropagation(); lire(); };
+  ecran.onclick = function () { l.enCours ? pause() : lire(); };
+  bPlay.onclick = function () { l.enCours ? pause() : lire(); };
+  bSon.onclick = function () {
+    l.son = !l.son;
+    bSon.textContent = l.son ? "🔊" : "🔇";
+    if (!l.son && window.speechSynthesis) speechSynthesis.cancel();
+    else if (l.enCours) parler(scenes[l.scene].voix);
+  };
   piste.onclick = function (e) {
     var r = piste.getBoundingClientRect();
-    lecteur.position = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * total;
+    l.position = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * total;
     couverture.hidden = true;
+    l.scene = -1;
     dessiner();
-    if (lecteur.enCours) lecteur.debut = performance.now() - lecteur.position;
+    if (l.enCours) { l.debut = performance.now() - l.position; parler(scenes[l.scene].voix); }
   };
   montrer(0);
   return boite;
@@ -339,7 +510,7 @@ function carteProjet(p) {
   if (p.code) actions.appendChild(lien("Voir le code", p.code, "bouton leger"));
   texte.appendChild(actions);
   haut.appendChild(texte);
-  haut.appendChild(teaser(p));
+  haut.appendChild(lecteurPub(p));
   pub.appendChild(haut);
 
   var bas = el("div", "pub-bas");
