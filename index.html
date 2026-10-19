@@ -224,7 +224,7 @@ footer{border-top:1px solid var(--bord);padding:24px 0 40px;color:var(--doux);fo
 <main class="page" id="contenu"></main>
 
 <div class="page">
-  <footer>Ilian SEGHIRI · BTS SIO option SISR · Ensitech · seghiri.ilian@yahoo.com<br><small>Voix off des pubs générées avec <a href="https://github.com/rhasspy/piper" target="_blank" rel="noopener">Piper</a> (open source, licence MIT), voix « Siwis » (corpus SIWIS, Université d’Édimbourg, licence CC BY 4.0).</small></footer>
+  <footer>Ilian SEGHIRI · BTS SIO option SISR · Ensitech · seghiri.ilian@yahoo.com<br><small>Voix off des pubs générées par IA avec vidIQ.</small></footer>
 </div>
 
 <script>
@@ -310,44 +310,44 @@ var PUBS = {
   "LootRadar": [
     { d: 3200, son: "voix/lootradar-1.mp3", fond: "#0a0b10", voix: "Tu paies encore tes jeux au prix fort ?",
       html: '<div class="pop"><div class="etiquette-prix tremble" style="--d:.6s">59,99 €</div></div><div class="titre-tv monte" style="--d:.5s">Tu paies encore tes jeux<br>au prix fort ?</div>' },
-    { d: 3148, son: "voix/lootradar-2.mp3", fond: "radial-gradient(circle at 50% 40%,#1d2a0a,#07080b 70%)", voix: "Avec LootRadar, c'est fini.",
+    { d: 2800, son: "voix/lootradar-2.mp3", fond: "radial-gradient(circle at 50% 40%,#1d2a0a,#07080b 70%)", voix: "Avec LootRadar, c'est fini.",
       html: '<div class="marque zoom"><i>◎</i><span>Loot<span style="color:var(--c)">Radar</span></span></div><div class="mini monte" style="--d:.6s">Le comparateur de prix des jeux PC</div>' },
     { d: 3200, son: "voix/lootradar-3.mp3", fond: "#0a0b10", voix: "Tape le nom de ton jeu…",
       html: '<div class="ui pop"><div class="ui-barre">🔍 <span class="tape" style="--n:10">Elden Ring</span></div></div>' },
-    { d: 4732, son: "voix/lootradar-4.mp3", fond: "#0a0b10", voix: "LootRadar compare plus de trente boutiques officielles en une seconde.",
+    { d: 5499, son: "voix/lootradar-4.mp3", fond: "#0a0b10", voix: "LootRadar compare plus de trente boutiques officielles en une seconde.",
       html: '<div class="ui"><div class="ui-barre">🔍 Elden Ring</div>' +
             '<div class="prix glisse" style="--d:.2s">Steam <b>59,99 €</b></div>' +
             '<div class="prix glisse" style="--d:.45s">Green Man Gaming <b>41,99 €</b></div>' +
             '<div class="prix top" style="--d:.7s"><span>Fanatical <span class="badge-tv">MEILLEUR PRIX</span></span><b>32,49 €</b></div></div>' },
-    { d: 3412, son: "voix/lootradar-5.mp3", fond: "radial-gradient(circle at 50% 50%,#22300c,#07080b 70%)", voix: "Le même jeu. Presque moitié prix.",
+    { d: 3480, son: "voix/lootradar-5.mp3", fond: "radial-gradient(circle at 50% 50%,#22300c,#07080b 70%)", voix: "Le même jeu. Presque moitié prix.",
       html: '<div class="barre monte">59,99 €</div><div class="gros-chiffre tampon" style="--d:.4s">−46 %</div><div class="titre-tv monte" style="--d:.9s">Le même jeu. <em>Presque moitié prix.</em></div>' },
-    { d: 4516, son: "voix/lootradar-6.mp3", fond: "#07080b", sansSousTitre: true, voix: "LootRadar. Le jeu que tu veux, au prix le plus bas.",
+    { d: 3800, son: "voix/lootradar-6.mp3", fond: "#07080b", sansSousTitre: true, voix: "LootRadar. Le jeu que tu veux, au prix le plus bas.",
       html: '<div class="marque pop"><i>◎</i><span>Loot<span style="color:var(--c)">Radar</span></span></div><div class="titre-tv monte" style="--d:.4s;font-size:3.6cqw">Le jeu que tu veux, au prix le plus bas.</div><div class="adresse monte" style="--d:.8s">ilivn.github.io/Site-Internet</div><div class="mention">Gratuit · sans inscription</div>' }
   ],
 
   "Sport Local": [
-    { d: 3988, son: "voix/sport-local-1.mp3", fond: "linear-gradient(160deg,#0f1d17,#050807)", voix: "Envie de bouger ce soir ? Mais où, et avec qui ?",
+    { d: 3890, son: "voix/sport-local-1.mp3", fond: "linear-gradient(160deg,#0f1d17,#050807)", voix: "Envie de bouger ce soir ? Mais où, et avec qui ?",
       html: '<div class="titre-tv monte">Envie de bouger ce soir ?</div><div class="titre-tv monte" style="--d:.7s;opacity:.6">Mais où… et avec qui ?</div>' },
     { d: 2800, son: "voix/sport-local-2.mp3", fond: "radial-gradient(circle at 50% 40%,#123526,#050807 70%)", voix: "Voici Sport Local.",
       html: '<div class="marque zoom"><i>🏃</i><span>Sport <span style="color:var(--c)">Local</span></span></div><div class="mini monte" style="--d:.6s">L\'appli du sport près de chez toi</div>' },
-    { d: 5332, son: "voix/sport-local-3.mp3", fond: "#1b2620", voix: "Ouvre la carte : terrains, salles, piscines, tout ce qui est autour de toi.",
+    { d: 5210, son: "voix/sport-local-3.mp3", fond: "#1b2620", voix: "Ouvre la carte : terrains, salles, piscines, tout ce qui est autour de toi.",
       html: '<div class="plan"></div><div class="radar"></div><div class="moi"></div>' +
             '<span class="pin pop" style="left:22%;top:26%;--d:.3s">🏀</span><span class="pin pop" style="left:68%;top:20%;--d:.5s">⚽</span>' +
             '<span class="pin pop" style="left:76%;top:58%;--d:.7s">🏊</span><span class="pin pop" style="left:30%;top:64%;--d:.9s">🏋️</span>' +
             '<span class="pin pop" style="left:52%;top:14%;--d:1.1s">🎾</span><span class="pin pop" style="left:12%;top:46%;--d:1.3s">🏃</span>' +
             '<div class="fiche monte" style="--d:1.6s;bottom:auto;top:4cqw"><span class="grosse">📍</span><div><b>111 lieux pour pratiquer</b><span>Autour de toi · rayon 2 km</span></div></div>' },
-    { d: 4828, son: "voix/sport-local-4.mp3", fond: "#1b2620", voix: "Un match de foot ce soir ? Rejoins la session en un clic.",
+    { d: 3999, son: "voix/sport-local-4.mp3", fond: "#1b2620", voix: "Un match de foot ce soir ? Rejoins la session en un clic.",
       html: '<div class="plan" style="opacity:.35"></div>' +
             '<div class="fiche monte" style="position:relative;left:auto;right:auto;bottom:auto;width:70cqw"><span class="grosse">⚽</span><div><b>Foot 5 contre 5 · 19 h</b><span>City stade · 410 m · 8 joueurs sur 10</span></div>' +
             '<span class="bouton-tv clic" style="position:relative">Rejoindre<span class="ok">✓ Inscrit</span></span></div>' },
-    { d: 3700, son: "voix/sport-local-5.mp3", fond: "#0f1d17", voix: "Et organise-toi avec les sportifs du coin.",
+    { d: 3400, son: "voix/sport-local-5.mp3", fond: "#0f1d17", voix: "Et organise-toi avec les sportifs du coin.",
       html: '<div class="bulles"><div class="bulle eux monte" style="--d:.2s">On est 8, il manque 2 joueurs ! ⚽</div><div class="bulle moi2 monte" style="--d:1s">J\'arrive avec un pote 👋</div><div class="bulle eux monte" style="--d:1.8s">Parfait, rendez-vous à 19 h !</div></div>' },
-    { d: 4396, son: "voix/sport-local-6.mp3", fond: "radial-gradient(circle at 50% 40%,#123526,#050807 70%)", sansSousTitre: true, voix: "Sport Local. Trouve où bouger, et avec qui.",
+    { d: 4180, son: "voix/sport-local-6.mp3", fond: "radial-gradient(circle at 50% 40%,#123526,#050807 70%)", sansSousTitre: true, voix: "Sport Local. Trouve où bouger, et avec qui.",
       html: '<div class="marque pop"><i>🏃</i><span>Sport <span style="color:var(--c)">Local</span></span></div><div class="titre-tv monte" style="--d:.4s;font-size:3.6cqw">Trouve où bouger, et avec qui.</div><div class="adresse monte" style="--d:.8s">ilivn.github.io/Sport-Local-1</div><div class="mention">Sur mobile et sur le web</div>' }
   ],
 
   "Carnet": [
-    { d: 5260, son: "voix/carnet-1.mp3", fond: "#2a2410", voix: "Des post-it partout. Des clients oubliés. Des ventes perdues.",
+    { d: 5400, son: "voix/carnet-1.mp3", fond: "#2a2410", voix: "Des post-it partout. Des clients oubliés. Des ventes perdues.",
       html: '<div class="postit" style="left:8%;top:12%;--d:.0s;transform:rotate(-6deg)">Rappeler M. Durand ???</div>' +
             '<div class="postit" style="left:38%;top:30%;--d:.3s">Devis boulangerie… envoyé ?</div>' +
             '<div class="postit" style="left:68%;top:10%;--d:.6s">RDV mardi ou jeudi ?</div>' +
@@ -355,7 +355,7 @@ var PUBS = {
             '<div class="postit" style="left:62%;top:52%;--d:1.2s">Relance !!!</div>' },
     { d: 2800, son: "voix/carnet-2.mp3", fond: "radial-gradient(circle at 50% 40%,#25265a,#07070f 70%)", voix: "Rangez tout dans Carnet.",
       html: '<div class="marque zoom"><i>◆</i>Carnet</div><div class="mini monte" style="--d:.6s">Le CRM des petites entreprises</div>' },
-    { d: 4828, son: "voix/carnet-3.mp3", fond: "#0f101c", voix: "Suivez chaque affaire, du premier contact jusqu'à la signature.",
+    { d: 5150, son: "voix/carnet-3.mp3", fond: "#0f101c", voix: "Suivez chaque affaire, du premier contact jusqu'à la signature.",
       html: '<div class="kanban"><div class="col"><h4>Nouveau</h4><div class="k" style="visibility:hidden"><b>.</b>.</div><div class="k"><b>Garage Lopez</b>800 €</div></div>' +
             '<div class="col"><h4>Devis envoyé</h4><div class="k"><b>Fleuriste Rose</b>1 200 €</div></div>' +
             '<div class="col"><h4>Gagné ✓</h4><div class="k" style="visibility:hidden"><b>.</b>.</div><div class="k" style="border-left-color:#2fd27a"><b>Salon Coiffure</b>950 €</div></div>' +
@@ -364,9 +364,9 @@ var PUBS = {
       html: '<div class="kpis"><div class="kpi monte"><b data-compte="12400" data-fin=" €">0</b><span>Chiffre signé</span></div>' +
             '<div class="kpi monte" style="--d:.2s"><b data-compte="38" data-fin=" %">0</b><span>Taux de transformation</span></div>' +
             '<div class="kpi monte" style="--d:.4s"><b data-compte="27">0</b><span>Clients</span></div></div>' },
-    { d: 4540, son: "voix/carnet-5.mp3", fond: "radial-gradient(circle at 50% 30%,#25265a,#07070f 70%)", voix: "Carnet vous rappelle vos relances. Plus aucun client oublié.",
+    { d: 4929, son: "voix/carnet-5.mp3", fond: "radial-gradient(circle at 50% 30%,#25265a,#07070f 70%)", voix: "Carnet vous rappelle vos relances. Plus aucun client oublié.",
       html: '<div class="notif"><span class="ico">⏰</span><div><b>Relance aujourd\'hui · 14 h</b><span>Appeler la Boulangerie Martin pour la signature</span></div></div><div class="titre-tv monte" style="--d:1s;font-size:4.4cqw">Plus aucun client <em>oublié.</em></div>' },
-    { d: 5068, son: "voix/carnet-6.mp3", fond: "#07070f", sansSousTitre: true, voix: "Carnet. Tous vos clients, toutes vos ventes, un seul écran.",
+    { d: 5037, son: "voix/carnet-6.mp3", fond: "#07070f", sansSousTitre: true, voix: "Carnet. Tous vos clients, toutes vos ventes, un seul écran.",
       html: '<div class="marque pop"><i>◆</i>Carnet</div><div class="titre-tv monte" style="--d:.4s;font-size:3.6cqw">Tous vos clients. Toutes vos ventes. Un seul écran.</div><div class="adresse monte" style="--d:.8s">ilivn.github.io/CRM-base-</div><div class="mention">Livré vierge · prêt à l\'emploi</div>' }
   ]
 };
@@ -410,7 +410,7 @@ function lecteurPub(p) {
 
   var l = { position: 0, enCours: false, debut: 0, scene: -1, son: true };
 
-  // Voix off : un fichier audio par scène (généré avec Piper, voix libre « Siwis »)
+  // Voix off : un fichier audio par scène (voix IA générée avec vidIQ)
   var audios = scenes.map(function (s) {
     var a = new Audio(s.son);
     a.preload = "auto";

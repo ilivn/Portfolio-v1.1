@@ -12,12 +12,8 @@ sous-titres et voix off. Les scènes sont écrites dans l'objet `PUBS` du script
 
 ### Voix off
 
-Les voix sont des fichiers MP3 dans `voix/` (un par scène), générés avec [Piper](https://github.com/rhasspy/piper),
-un moteur de synthèse vocale open source (licence MIT), avec la voix française « Siwis »
-(corpus SIWIS, Université d'Édimbourg, licence CC BY 4.0 : la mention est dans le pied de page).
-
-Pour refaire une voix : `echo "Ton texte" | piper --model fr-siwis-medium.onnx --output_file voix.wav`,
-puis convertir en MP3 et mettre le chemin dans le champ `son` de la scène.
+Les voix sont des fichiers MP3 dans `voix/` (un par scène). Elles ont été générées par IA avec vidIQ
+(une narration par pub : Liam pour LootRadar, Laura pour Sport Local, Brian pour Carnet), puis découpées scène par scène.
 
 ## Ajouter un projet
 
