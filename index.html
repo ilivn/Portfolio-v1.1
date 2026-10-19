@@ -15,6 +15,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17132e;--panel:#221c42;--ink:#f1eeff;--muted:#b0a9d9;--line:#38306a;--sky-bg:#123a63;--sky:#8ec8ff;--vio-bg:#33286e;--vio:#c3b5ff;--sun-bg:#4a3a0a;--sun:#ffd666;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#17132e;--panel:#221c42;--ink:#f1eeff;--muted:#b0a9d9;--line:#38306a;--sky-bg:#123a63;--sky:#8ec8ff;--vio-bg:#33286e;--vio:#c3b5ff;--sun-bg:#4a3a0a;--sun:#ffd666;color-scheme:dark}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font:400 17px/1.5 Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:110px}
 h1,h2,h3,h4{font-family:Fredoka,"Trebuchet MS",system-ui,sans-serif;font-weight:600;margin:0;line-height:1.2}
@@ -74,6 +75,80 @@ details[open] .chev{transform:rotate(90deg)}
 .tab{flex:1;border:0;background:transparent;border-radius:16px;padding:6px 4px;display:flex;flex-direction:column;align-items:center;font-size:13.5px;font-weight:700;color:var(--muted)}
 .tab i{font-style:normal;font-size:22px}
 .tab[aria-selected="true"]{background:var(--vio-bg);color:var(--vio)}
+.pitch{margin:14px 0 0;font-size:16px;position:relative;max-width:460px}
+.hcta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative}
+.hbtn{display:inline-block;text-decoration:none;font-weight:800;font-size:15px;padding:10px 16px;border-radius:14px;background:#fff;color:var(--ink)!important}
+.hbtn.alt{background:rgba(255,255,255,.18);color:#fff!important}
+.guide{background:var(--panel);border-radius:18px;padding:16px;margin-top:4px;box-shadow:0 4px 14px rgba(60,40,140,.08)}
+.guide h2{font-size:18px;margin-bottom:10px}
+.guide ol{margin:0;padding:0;list-style:none;display:grid;gap:8px;counter-reset:g}
+.guide li{counter-increment:g;display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+.guide li:before{content:counter(g);flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--vio-bg);color:var(--vio);font:600 14px Fredoka,sans-serif}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.phares{margin:22px 0 26px}
+.phares-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}
+.phares-h h2{font-size:20px}.phares-h a{font-weight:800;font-size:15px;color:var(--vio)}
+.pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pcard{display:block;text-decoration:none;color:#fff;border-radius:18px;overflow:hidden;position:relative;aspect-ratio:3/4;background:#111;box-shadow:0 6px 18px rgba(60,40,140,.15);transition:transform .2s}
+.pcard:hover{transform:translateY(-4px)}
+.pcard img{width:100%;height:100%;object-fit:cover;object-position:top;opacity:.75}
+.pcard div{position:absolute;left:0;right:0;bottom:0;padding:10px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.pcard b{display:block;font:600 16px Fredoka,sans-serif}.pcard span{font-size:12.5px;opacity:.9}
+.sep{border:0;border-top:2px dashed var(--line);margin:0 0 20px}
+@media (max-width:480px){.pcards{grid-template-columns:repeat(3,1fr);gap:8px}.pcard b{font-size:14px}}
+/* Une pub = un produit */
+.pub{--c:#c6f35a;--c-ink:#111;--fond:#0d1017;--texte:#eef1f6;--doux:#9aa3b5;--carte:#171b25;
+  margin:0 0 18px;border-radius:26px;background:var(--fond);color:var(--texte);overflow:hidden;position:relative;scroll-margin-top:70px}
+.pub:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:var(--c);opacity:.13;filter:blur(40px);top:-200px;right:-160px;pointer-events:none}
+.pub-haut{display:grid;grid-template-columns:1fr;gap:20px;padding:30px 22px 20px;position:relative}
+.badge{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--c);margin-bottom:14px}
+.badge:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c)}
+.pub h2{font-size:clamp(32px,7vw,44px);letter-spacing:-1px}
+.pub h2 span{color:var(--c)}
+.slogan{font-size:18px;margin:16px 0 0;color:var(--texte);max-width:480px}
+.slogan small{display:block;color:var(--doux);font-size:16px;margin-top:8px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-block;text-decoration:none;font-weight:800;padding:13px 22px;border-radius:16px;background:var(--c);color:var(--c-ink);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{background:transparent;color:var(--texte);border:2px solid #ffffff33;padding:11px 20px}
+
+/* Maquettes */
+.ecran{display:flex;justify-content:center}
+.tel{width:min(230px,66vw);aspect-ratio:9/18.5;border-radius:38px;padding:10px;background:#000;border:2px solid #ffffff22;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 6px #ffffff10;transform:rotate(2deg)}
+.tel img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:29px;display:block}
+.pc{width:100%;max-width:440px}
+.pc .vitre{border-radius:14px 14px 0 0;padding:8px;background:#000;border:2px solid #ffffff22;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.pc img{width:100%;display:block;border-radius:6px}
+.pc .pied{height:14px;margin:0 -18px;background:linear-gradient(#3a3f4c,#23262f);border-radius:0 0 14px 14px}
+
+/* Points forts + étapes */
+.pub-bas{padding:4px 22px 26px;position:relative}
+.forts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fort{background:var(--carte);border-radius:20px;padding:20px;border:1px solid #ffffff12}
+.fort i{font-style:normal;font-size:28px}
+.fort h3{font-size:19px;margin:8px 0 6px}
+.fort p{margin:0;color:var(--doux);font-size:15.5px}
+.etapes{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:14px 24px;align-items:start;background:var(--carte);border-radius:20px;padding:22px;border:1px solid #ffffff12}
+.etapes h3{grid-column:1/-1;font-size:18px}
+.etapes ol{grid-column:1/-1;display:grid;grid-template-columns:1fr;gap:14px;margin:0;padding:0;list-style:none;counter-reset:e}
+.etapes li{counter-increment:e;display:flex;gap:12px;font-size:15.5px;color:var(--doux)}
+.etapes li:before{content:counter(e);flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:var(--c-ink);font:700 15px Fredoka,sans-serif}
+.etapes li b{color:var(--texte)}
+.tech{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--doux)}
+.tech span{background:#ffffff12;color:var(--texte);border-radius:8px;padding:3px 10px;font-weight:700}
+.bts{margin-top:14px;font-size:14px;color:var(--doux)}
+.bts b{color:var(--c)}
+
+/* Couleurs de chaque produit */
+.pub.sport{--c:#7ee2a8;--c-ink:#0b2a1a;--fond:#0f1d17;--carte:#16281f;--doux:#9ab8a8}
+.pub.crm{--c:#8b8dff;--c-ink:#0f1030;--fond:#11121f;--carte:#1a1b2e;--doux:#a3a6c8}
+
+.pv-intro{margin-bottom:16px}.pv-intro h2{font-size:22px}.pv-intro p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.pv-nav{display:flex;gap:8px;overflow-x:auto;padding:12px 0 16px;scrollbar-width:none}
+.pv-nav a{text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;border:2px solid var(--line);background:var(--panel);border-radius:99px;padding:6px 14px;color:var(--ink)}
+.pub{scroll-margin-top:12px}
+@media (max-width:560px){.forts{grid-template-columns:1fr}}
+.app[data-b="3"]{--acc:#e8590c}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -82,15 +157,142 @@ details[open] .chev{transform:rotate(90deg)}
 <div class="app" id="app" data-b="0">
 <header class="hero">
 <div class="who"><div class="av">IS</div><div><h1>Ilian SEGHIRI</h1><p>Étudiant en BTS SIO, option SISR</p><p>Ensitech — seghiri.ilian@yahoo.com</p></div></div>
+<p class="pitch">Je crée des sites, des applications et des outils pour entreprise, et je les mets en ligne moi-même.</p>
+<div class="hcta"><a class="hbtn" href="#preuves">✨ Voir mes réalisations</a><a class="hbtn alt" href="#competences">Mes compétences ↓</a></div>
 </header>
 <div class="stats" id="stats"></div>
 <div class="body">
+<section class="phares" aria-labelledby="ph">
+<div class="phares-h"><h2 id="ph">Mes 3 projets phares</h2><a href="#preuves">Tout voir →</a></div>
+<div class="pcards">
+<a class="pcard" href="#lootradar"><img src="preuves/lootradar-1.jpg" alt=""><div><b>LootRadar</b><span>🌐 Site internet</span></div></a>
+<a class="pcard" href="#sport-local"><img src="preuves/sport-local-1.jpg" alt=""><div><b>Sport Local</b><span>📱 Application</span></div></a>
+<a class="pcard" href="#carnet"><img src="preuves/carnet-crm-1.png" alt="" style="object-position:left top"><div><b>Carnet</b><span>💼 CRM</span></div></a>
+</div>
+</section>
+<section class="guide" aria-labelledby="gd">
+<h2 id="gd">Comment lire ce portfolio ?</h2>
+<ol>
+<li><span>En bas de l'écran, choisis un <b>bloc de compétences</b> du BTS : Support, Réseaux ou Cybersécurité.</span></li>
+<li><span>Filtre par <b>type de projet</b> si tu veux : site, application ou autre.</span></li>
+<li><span><b>Clique sur une compétence</b> pour voir le projet, les outils utilisés, le lien et les preuves.</span></li>
+</ol>
+<div class="legend"><span class="tag t-site">🌐 Site internet</span><span class="tag t-app">📱 Application</span><span class="tag t-autre">🧩 Autre projet</span></div>
+</section>
+<hr class="sep" style="margin-top:24px">
+<div id="competences"></div>
 <div class="bh" id="bh"></div>
 <div class="chips" id="chips" role="group" aria-label="Filtrer par type de projet"></div>
 <main id="main"></main>
+<section id="preuves" hidden>
+<div class="pv-intro"><h2>🏆 Preuves — mes réalisations en ligne</h2><p>Un site, une application et un logiciel pour entreprise. Chacun est en ligne : tu peux l'ouvrir et l'essayer tout de suite.</p></div>
+<nav class="pv-nav" aria-label="Aller à un projet"><a href="#lootradar">🌐 LootRadar</a><a href="#sport-local">📱 Sport Local</a><a href="#carnet">💼 Carnet CRM</a></nav>
+<!-- ========== LootRadar ========== -->
+<article class="pub" id="lootradar">
+  <div class="pub-haut">
+    <div>
+      <p class="badge">Site internet</p>
+      <h2>Loot<span>Radar</span></h2>
+      <p class="slogan">Le jeu que tu veux, au prix le plus bas.
+        <small>Tape un nom de jeu, LootRadar compare plus de 30 boutiques officielles en une seconde.</small></p>
+      <div class="cta">
+        <a class="btn" href="https://ilivn.github.io/Site-Internet/" target="_blank" rel="noopener">Essayer le site →</a>
+        <a class="btn alt" href="https://github.com/ilivn/Site-Internet" target="_blank" rel="noopener">Voir le code</a>
+      </div>
+    </div>
+    <div class="ecran"><div class="tel"><img src="preuves/lootradar-1.jpg" alt="Accueil de LootRadar : barre de recherche et bons plans du moment" loading="lazy"></div></div>
+  </div>
+  <div class="pub-bas">
+    <div class="forts">
+      <div class="fort"><i>🔎</i><h3>Recherche instantanée</h3><p>Les résultats s'affichent pendant que tu tapes.</p></div>
+      <div class="fort"><i>💸</i><h3>Le vrai meilleur prix</h3><p>Steam, GOG, Fanatical… et le prix le plus bas jamais vu.</p></div>
+      <div class="fort"><i>🔥</i><h3>Bons plans du jour</h3><p>Meilleures affaires, grosses remises, jeux à moins de 5 $.</p></div>
+    </div>
+    <div class="etapes">
+      <h3>Comment ça marche</h3>
+      <ol>
+        <li><span><b>Cherche</b> le jeu par son nom.</span></li>
+        <li><span><b>Compare</b> les prix de toutes les boutiques.</span></li>
+        <li><span><b>Achète</b> au meilleur endroit en un clic.</span></li>
+      </ol>
+    </div>
+    <p class="tech">Fait avec <span>HTML</span><span>CSS</span><span>JavaScript</span><span>API CheapShark</span><span>GitHub Pages</span></p>
+    <p class="bts">Compétence BTS : <b>Développer la présence en ligne de l'organisation</b></p>
+  </div>
+</article>
+
+<!-- ========== Sport Local ========== -->
+<article class="pub sport" id="sport-local">
+  <div class="pub-haut">
+    <div>
+      <p class="badge">Application mobile et web</p>
+      <h2>Sport <span>Local</span></h2>
+      <p class="slogan">Trouve où bouger, et avec qui.
+        <small>Terrains, salles, piscines et parcours autour de toi sur une carte, plus des sportifs du coin pour jouer ensemble.</small></p>
+      <div class="cta">
+        <a class="btn" href="https://ilivn.github.io/Sport-Local-1/" target="_blank" rel="noopener">Ouvrir l'application →</a>
+      </div>
+    </div>
+    <div class="ecran"><div class="tel"><img src="preuves/sport-local-1.jpg" alt="Sport Local : carte des lieux de sport autour de l'utilisateur" loading="lazy"></div></div>
+  </div>
+  <div class="pub-bas">
+    <div class="forts">
+      <div class="fort"><i>🗺️</i><h3>Une carte de tout le sport</h3><p>Plus de 100 lieux trouvés à 2 km autour de toi.</p></div>
+      <div class="fort"><i>🏃</i><h3>Parcours et sessions</h3><p>Des parcours de course et des séances à rejoindre.</p></div>
+      <div class="fort"><i>💬</i><h3>Rencontre des sportifs</h3><p>Profils et messages pour s'organiser entre voisins.</p></div>
+    </div>
+    <div class="etapes">
+      <h3>Comment ça marche</h3>
+      <ol>
+        <li><span><b>Ouvre</b> la carte, elle te localise.</span></li>
+        <li><span><b>Filtre</b> : terrains, salles, piscines…</span></li>
+        <li><span><b>Rejoins</b> une session ou crée la tienne.</span></li>
+      </ol>
+    </div>
+    <p class="tech">Fait avec <span>Flutter</span><span>Supabase</span><span>OpenStreetMap</span><span>GitHub Pages</span></p>
+    <p class="bts">Compétence BTS : <b>Mettre à disposition des utilisateurs un service informatique</b></p>
+  </div>
+</article>
+
+<!-- ========== Carnet CRM ========== -->
+<article class="pub crm" id="carnet">
+  <div class="pub-haut">
+    <div>
+      <p class="badge">Logiciel pour entreprise</p>
+      <h2><span>Carnet</span>, le CRM</h2>
+      <p class="slogan">Tous tes clients. Toutes tes ventes. Un seul écran.
+        <small>Un outil livré vierge : l'entreprise y met ses contacts, suit ses ventes et n'oublie plus aucune relance.</small></p>
+      <div class="cta">
+        <a class="btn" href="https://ilivn.github.io/CRM-base-/" target="_blank" rel="noopener">Tester le CRM →</a>
+        <a class="btn alt" href="https://github.com/ilivn/CRM-base-" target="_blank" rel="noopener">Voir le code</a>
+      </div>
+    </div>
+    <div class="ecran"><div class="pc"><div class="vitre"><img src="preuves/carnet-crm-1.png" alt="Tableau de bord du CRM Carnet" loading="lazy"></div><div class="pied"></div></div></div>
+  </div>
+  <div class="pub-bas">
+    <div class="forts">
+      <div class="fort"><i>📇</i><h3>Fiches contacts</h3><p>Clients et prospects rangés au même endroit.</p></div>
+      <div class="fort"><i>📊</i><h3>Ventes en un coup d'œil</h3><p>Pipeline à glisser-déposer, chiffre signé, taux de transformation.</p></div>
+      <div class="fort"><i>⏰</i><h3>Zéro oubli</h3><p>Relances avec date : appel, e-mail, rendez-vous.</p></div>
+    </div>
+    <div class="etapes">
+      <h3>Comment ça marche</h3>
+      <ol>
+        <li><span><b>Renseigne</b> le nom de ton entreprise.</span></li>
+        <li><span><b>Ajoute</b> tes clients et tes affaires en cours.</span></li>
+        <li><span><b>Suis</b> tes ventes sur le tableau de bord.</span></li>
+      </ol>
+    </div>
+    <p class="tech">Fait avec <span>HTML</span><span>CSS</span><span>JavaScript</span><span>localStorage</span><span>JSON</span></p>
+    <p class="bts">Compétence BTS : <b>Mettre à disposition des utilisateurs un service informatique</b></p>
+  </div>
+</article>
+
+</section>
+
 </div>
 </div>
-<nav class="tabs" aria-label="Blocs de compétences"><div id="tabs" role="tablist"></div></nav>
+<nav class="tabs" aria-label="Blocs de compétences et preuves"><div id="tabs" role="tablist"></div></nav>
 
 <script>
 var S="Site internet",A="Application",O="Autre projet";
@@ -127,12 +329,17 @@ function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
 function btn(label,pressed,fn,cls){var b=el("button",cls||"",label);b.type="button";b.setAttribute("aria-pressed",pressed);b.onclick=fn;return b}
 function all(){var r=[];blocs.forEach(function(b){b.groupes.forEach(function(g){r=r.concat(g.rows.filter(Boolean))})});return r}
 function link(label,href,cls){var l=el("a",cls,label);l.href=href;l.target="_blank";l.rel="noopener";return l}
+var TABS=blocs.concat([{tab:"Preuves",ico:"🏆"}]),PREUVES=blocs.length;
 function render(){
-var b=blocs[st.b],app=document.getElementById("app");app.setAttribute("data-b",st.b);
+var pv=st.b===PREUVES;
+["bh","chips","main"].forEach(function(id){document.getElementById(id).hidden=pv});
+document.getElementById("preuves").hidden=!pv;
+var b=blocs[pv?0:st.b],app=document.getElementById("app");app.setAttribute("data-b",st.b);
 var tabs=document.getElementById("tabs");clear(tabs);
-blocs.forEach(function(x,i){var t=el("button","tab");t.type="button";t.setAttribute("role","tab");t.setAttribute("aria-selected",i===st.b);
+TABS.forEach(function(x,i){var t=el("button","tab");t.type="button";t.setAttribute("role","tab");t.setAttribute("aria-selected",i===st.b);
 t.appendChild(el("i","",x.ico));t.appendChild(document.createTextNode(x.tab));
-t.onclick=function(){st.b=i;st.g=0;render();window.scrollTo({top:0,behavior:"smooth"})};tabs.appendChild(t)});
+t.onclick=function(){st.b=i;st.g=0;history.replaceState(null,"",i===PREUVES?"#preuves":location.pathname);render();document.getElementById("competences").scrollIntoView({behavior:"smooth"})};tabs.appendChild(t)});
+if(pv)return;
 var rows=all(),uniq={};rows.forEach(function(r){uniq[r[0]]=1});
 var stats=document.getElementById("stats");clear(stats);
 [[Object.keys(uniq).length,"compétences"],[rows.length,"projets"],[3,"blocs"]].forEach(function(s){var d=el("div","stat");d.appendChild(el("b","",s[0]));d.appendChild(el("span","",s[1]));stats.appendChild(d)});
@@ -163,7 +370,15 @@ function makeFiles(list){
 var w=el("div","files");w.appendChild(el("div","ftitle","Preuves"));
 list.forEach(function(p){var r=el("div","frow"),a=el("a","flink","📎 "+p[0]);a.href=p[1];a.target="_blank";a.rel="noopener";r.appendChild(a);w.appendChild(r)});
 return w}
-render();
+// Ouvre l'onglet Preuves quand l'adresse finit par #preuves, #lootradar, #sport-local ou #carnet
+function suivreAncre(){
+var h=location.hash.slice(1);
+if(h==="competences"&&st.b===PREUVES){st.b=0;render();return}
+if(["preuves","lootradar","sport-local","carnet"].indexOf(h)<0)return;
+st.b=PREUVES;render();
+document.getElementById(h==="preuves"?"competences":h).scrollIntoView({behavior:"smooth"})}
+window.addEventListener("hashchange",suivreAncre);
+render();suivreAncre();
 </script>
 
 </body>
